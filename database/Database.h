@@ -5,17 +5,18 @@
 #include <string>
 using namespace std;
 
-fstream initializeFile(string filename);
-
 class Database
 {
 public:
 	Database();
-	Database(int scale);
-	int find(int key, string &value, int *indexAddress, int *pos,int *address, bool needValue);
+	void dataFile_find(const int dataAddress, string &value);
 	int dataFile_add(const string &value);
-	void indexFile_add(const int key, const int dataAddress, const int indexAddress, const int pos, int size);
+	void dataFile_delete(const int dataAddress);
+	void dataFile_replace(const int dataAddress, string &value);
+	int indexFile_find(int key, int *indexAddress, int *pos, int *dataAddress);
+	void indexFile_add(const int key, const int dataAddress, const int indexAddress, int pos, int size);
 	void indexFile_addAndOverflow(const int key, const int dataAddress, const int indexAddress, const int pos, const int size);
+	bool select(const int key, string &value);
 	bool insert(const int key, const string &value);
 	bool remove(const int key);
 	bool update(const int key, const string &value);
@@ -23,6 +24,8 @@ public:
 private:
 	int scale;
 	fstream indexFile, dataFile;
+	const int ZERO = 0;
+	const char END = '\0';
 };
 
 #endif // !DATABASE_H
