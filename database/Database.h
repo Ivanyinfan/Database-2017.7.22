@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Cache.h"
 using namespace std;
 
 class Database

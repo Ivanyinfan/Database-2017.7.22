@@ -2,7 +2,47 @@
 
 int main()
 {
-	Database database;
+	Cache cache;
+	int key = 0;
+	string value;
+	cache.insert(1, "test1", &key, &value);
+	if (key != 0 || value != "")cout << "error" << endl;
+	cache.insert(2, "test2", &key, &value);
+	cache.insert(3, "test3", &key, &value);
+	cache.insert(5, "test5", &key, &value);
+	cache.insert(4, "test4", &key, &value);
+	cache.insert(6, "test6", &key, &value);
+	cache.insert(8, "test8", &key, &value);
+	cache.insert(7, "test7", &key, &value);
+	cache.insert(9, "test9", &key, &value);
+	string value3 = "te";
+	cache.update(1, value3);
+	cache.insert(16385, "test", &key, &value);
+	cout << key << value << endl;
+	for (int i = 1; i <= 9; ++i)
+	{
+		if (!cache.select(i, value))
+			cout << "error" << i << endl;
+		else
+			cout << value << endl;
+	}
+	cache.select(16385, value);
+	cout << value << endl;
+	value = "hehe";
+	cache.update(9, value);
+	if (cache.remove(10))
+		cout << "error" << endl;
+	if (cache.remove(2))
+		cout << "remo" << endl;
+	vector<int> key2; vector<string> value2;
+	cache.save(&key2, &value2);
+	for (int i = 0; i < key2.size(); ++i)
+	{
+		cout << key2[i] << value2[i] << endl;
+	}
+	if (!cache.insert(2, value3, &key, &value))
+		cout << "error" << endl;
+	/*Database database;
 	string value = "test1";
 	database.insert(1, value);
 	database.insert(2, "test2");
@@ -64,7 +104,7 @@ int main()
 	if (database.select(-1, value))
 		cout << value << endl;
 	else
-		cout << "-1" << " error" << endl;
+		cout << "-1" << " error" << endl;*/
 	char c;
 	cin >> c;
 	return 0;
