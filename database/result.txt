@@ -1,0 +1,568 @@
+index and data file initialize complete.
+
+INSERT key:1 value:test1
+insert find result:0
+dataFile_add value:test1 dataAddress:4 next:24
+insert key:1 dataAddress:-4 indexAddress:8 pos:0 size:0
+indexFile_addAndOverflow key:1 dataAddress:-4 indexAddress:8 pos:0 size:0
+indexFile_add key:1 dataAddress:-4 indexAddress:8 pos:0 size:0
+
+INSERT key:2 value:test2
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:2 address:8 begin:1 end:1 middle:1 tmp:1 size:1
+[indexFile_find] last:1
+insert find result:4
+dataFile_add value:test2 dataAddress:24 next:44
+insert key:2 dataAddress:-24 indexAddress:8 pos:1 size:1
+indexFile_addAndOverflow key:2 dataAddress:-24 indexAddress:8 pos:1 size:1
+indexFile_add key:2 dataAddress:-24 indexAddress:8 pos:1 size:1
+
+INSERT key:3 value:test3
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:3 address:8 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:2
+insert find result:4
+dataFile_add value:test3 dataAddress:44 next:64
+insert key:3 dataAddress:-44 indexAddress:8 pos:2 size:2
+indexFile_addAndOverflow key:3 dataAddress:-44 indexAddress:8 pos:2 size:2
+indexFile_add key:3 dataAddress:-44 indexAddress:8 pos:2 size:2
+
+INSERT key:5 value:test5
+[indexFile_find] middle:2 tmp:2
+[indexFile_find] key:5 address:8 begin:2 end:3 middle:2 tmp:2 size:3
+[indexFile_find] last:3
+insert find result:4
+dataFile_add value:test5 dataAddress:64 next:84
+insert key:5 dataAddress:-64 indexAddress:8 pos:3 size:3
+indexFile_addAndOverflow key:5 dataAddress:-64 indexAddress:8 pos:3 size:3
+[indexFile_addAndOverflow] index[0]:3
+[indexFile_addAndOverflow] data[0]:-44
+[indexFile_addAndOverflow] index[1]:5
+[indexFile_addAndOverflow] data[1]:-64
+indexFile_addAndOverflow new node firstEmpty:48 nextEmpty:88
+[indexFile_addAndOverflow] currentLeaf:48 nextLeaf:0
+[indexFile_addAndOverflow] newRoot:88 left:1 leftChild:8 right:3 rightChild:48 nextEmpty:128
+
+INSERT key:4 value:test4
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:4 address:88 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:4 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:5
+insert find result:2
+dataFile_add value:test4 dataAddress:84 next:104
+insert key:4 dataAddress:-84 indexAddress:48 pos:1 size:2
+indexFile_addAndOverflow key:4 dataAddress:-84 indexAddress:48 pos:1 size:2
+indexFile_add key:4 dataAddress:-84 indexAddress:48 pos:1 size:2
+
+INSERT key:6 value:test6
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:6 address:88 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:3
+[indexFile_find] middle:2 tmp:4
+[indexFile_find] key:6 address:48 begin:2 end:3 middle:2 tmp:4 size:3
+[indexFile_find] last:5
+insert find result:4
+dataFile_add value:test6 dataAddress:104 next:124
+insert key:6 dataAddress:-104 indexAddress:48 pos:3 size:3
+indexFile_addAndOverflow key:6 dataAddress:-104 indexAddress:48 pos:3 size:3
+[indexFile_addAndOverflow] index[0]:5
+[indexFile_addAndOverflow] data[0]:-64
+[indexFile_addAndOverflow] index[1]:6
+[indexFile_addAndOverflow] data[1]:-104
+indexFile_addAndOverflow new node firstEmpty:128 nextEmpty:168
+[indexFile_addAndOverflow] currentLeaf:128 nextLeaf:0
+indexFile_addAndOverflow key:5 dataAddress:128 indexAddress:88 pos:2 size:2
+indexFile_add key:5 dataAddress:128 indexAddress:88 pos:2 size:2
+
+INSERT key:8 value:test8
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:8 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:8 address:128 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:6
+insert find result:4
+dataFile_add value:test8 dataAddress:124 next:144
+insert key:8 dataAddress:-124 indexAddress:128 pos:2 size:2
+indexFile_addAndOverflow key:8 dataAddress:-124 indexAddress:128 pos:2 size:2
+indexFile_add key:8 dataAddress:-124 indexAddress:128 pos:2 size:2
+
+INSERT key:7 value:test7
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:7 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:2 tmp:6
+[indexFile_find] key:7 address:128 begin:2 end:3 middle:2 tmp:6 size:3
+[indexFile_find] last:8
+insert find result:2
+dataFile_add value:test7 dataAddress:144 next:164
+insert key:7 dataAddress:-144 indexAddress:128 pos:2 size:3
+indexFile_addAndOverflow key:7 dataAddress:-144 indexAddress:128 pos:2 size:3
+[indexFile_addAndOverflow] index[0]:7
+[indexFile_addAndOverflow] data[0]:-144
+[indexFile_addAndOverflow] index[1]:8
+[indexFile_addAndOverflow] data[1]:-124
+indexFile_addAndOverflow new node firstEmpty:168 nextEmpty:208
+[indexFile_addAndOverflow] currentLeaf:168 nextLeaf:0
+indexFile_addAndOverflow key:7 dataAddress:168 indexAddress:88 pos:3 size:3
+[indexFile_addAndOverflow] index[0]:5
+[indexFile_addAndOverflow] data[0]:128
+[indexFile_addAndOverflow] index[1]:7
+[indexFile_addAndOverflow] data[1]:168
+indexFile_addAndOverflow new node firstEmpty:208 nextEmpty:248
+[indexFile_addAndOverflow] newRoot:248 left:1 leftChild:88 right:5 rightChild:208 nextEmpty:288
+
+INSERT key:-1 value:test9
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:-1 address:248 begin:1 end:1 middle:1 tmp:1 size:2
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:-1 address:88 begin:1 end:1 middle:1 tmp:1 size:2
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:-1 address:8 begin:1 end:1 middle:1 tmp:1 size:2
+insert find result:0
+dataFile_add value:test9 dataAddress:164 next:184
+insert key:-1 dataAddress:-164 indexAddress:8 pos:0 size:2
+indexFile_addAndOverflow key:-1 dataAddress:-164 indexAddress:8 pos:0 size:2
+indexFile_add key:-1 dataAddress:-164 indexAddress:8 pos:0 size:2
+
+SELECT key:1
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:1 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:1 address:88 begin:1 end:1 middle:1 tmp:1 size:2
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:1 address:8 begin:2 end:2 middle:2 tmp:1 size:3
+select find result:1
+dataFile_find dataAddress:4 value:test1 tmp:test1
+SELECT key:1 indexAddress:8 pos:2 dataAddress:4 value:test1
+
+SELECT key:2
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:2 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:2 address:88 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:2 address:8 begin:2 end:3 middle:2 tmp:1 size:3
+[indexFile_find] last:2
+select find result:1
+dataFile_find dataAddress:24 value:test2 tmp:test2
+SELECT key:2 indexAddress:8 pos:3 dataAddress:24 value:test2
+
+SELECT key:3
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:3 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:3 address:88 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:3 address:48 begin:1 end:1 middle:1 tmp:3 size:2
+select find result:1
+dataFile_find dataAddress:44 value:test3 tmp:test3
+SELECT key:3 indexAddress:48 pos:1 dataAddress:44 value:test3
+
+SELECT key:4
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:4 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:1
+[indexFile_find] key:4 address:88 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] last:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:4 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:4
+select find result:1
+dataFile_find dataAddress:84 value:test4 tmp:test4
+SELECT key:4 indexAddress:48 pos:2 dataAddress:84 value:test4
+
+SELECT key:5
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:5 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:5 address:208 begin:1 end:1 middle:1 tmp:5 size:2
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:5 address:128 begin:1 end:1 middle:1 tmp:5 size:2
+select find result:1
+dataFile_find dataAddress:64 value:test5 tmp:test5
+SELECT key:5 indexAddress:128 pos:1 dataAddress:64 value:test5
+
+SELECT key:6
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:6 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:6 address:208 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:6 address:128 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:6
+select find result:1
+dataFile_find dataAddress:104 value:test6 tmp:test6
+SELECT key:6 indexAddress:128 pos:2 dataAddress:104 value:test6
+
+SELECT key:7
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:7 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:7 address:208 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:7
+[indexFile_find] key:7 address:168 begin:1 end:1 middle:1 tmp:7 size:2
+select find result:1
+dataFile_find dataAddress:144 value:test7 tmp:test7
+SELECT key:7 indexAddress:168 pos:1 dataAddress:144 value:test7
+
+SELECT key:8
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:8 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:8 address:208 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:7
+[indexFile_find] key:8 address:168 begin:1 end:2 middle:1 tmp:7 size:2
+[indexFile_find] last:8
+select find result:1
+dataFile_find dataAddress:124 value:test8 tmp:test8
+SELECT key:8 indexAddress:168 pos:2 dataAddress:124 value:test8
+
+REMOVE key:8
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:8 address:248 begin:1 end:2 middle:1 tmp:-1 size:2
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:5
+[indexFile_find] key:8 address:208 begin:1 end:2 middle:1 tmp:5 size:2
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:7
+[indexFile_find] key:8 address:168 begin:1 end:2 middle:1 tmp:7 size:2
+[indexFile_find] last:8
+[indexFile_deleteAndUnderflow] indexAddress:168 pos:2 size:2
+[indexFile_delete] indexAddress:168 pos:2 size:2
+[indexFile_deleteAndUnderflow] parent:208 parentPosition:2 parentSize:2
+[indexFile_mergeLeft] indexAddress:168 size:1 left:128 leftSize:2
+[indexFile_deleteAndUnderflow] indexAddress:208 pos:2 size:2
+[indexFile_delete] indexAddress:208 pos:2 size:2
+[indexFile_deleteAndUnderflow] parent:248 parentPosition:2 parentSize:2
+[indexFile_mergeLeft] indexAddress:208 size:1 left:88 leftSize:2
+[indexFile_deleteAndUnderflow] indexAddress:248 pos:2 size:2
+[indexFile_delete] indexAddress:248 pos:2 size:2
+
+SELECT key:1
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:1 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:1 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:1 address:8 begin:2 end:2 middle:2 tmp:1 size:3
+select find result:1
+dataFile_find dataAddress:4 value:test1 tmp:test1
+SELECT key:1 indexAddress:8 pos:2 dataAddress:4 value:test1
+
+SELECT key:2
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:2 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:2 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:2 address:8 begin:2 end:3 middle:2 tmp:1 size:3
+[indexFile_find] last:2
+select find result:1
+dataFile_find dataAddress:24 value:test2 tmp:test2
+SELECT key:2 indexAddress:8 pos:3 dataAddress:24 value:test2
+
+SELECT key:3
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:3 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:3 address:88 begin:2 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:3 address:48 begin:1 end:1 middle:1 tmp:3 size:2
+select find result:1
+dataFile_find dataAddress:44 value:test3 tmp:test3
+SELECT key:3 indexAddress:48 pos:1 dataAddress:44 value:test3
+
+SELECT key:4
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:4 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:4 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:4 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:4
+select find result:1
+dataFile_find dataAddress:84 value:test4 tmp:test4
+SELECT key:4 indexAddress:48 pos:2 dataAddress:84 value:test4
+
+SELECT key:5
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:5 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:5 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:2 tmp:6
+[indexFile_find] key:5 address:128 begin:1 end:2 middle:2 tmp:6 size:3
+select find result:1
+dataFile_find dataAddress:64 value:test5 tmp:test5
+SELECT key:5 indexAddress:128 pos:1 dataAddress:64 value:test5
+
+SELECT key:6
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:6 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:6 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:2 tmp:6
+[indexFile_find] key:6 address:128 begin:2 end:2 middle:2 tmp:6 size:3
+select find result:1
+dataFile_find dataAddress:104 value:test6 tmp:test6
+SELECT key:6 indexAddress:128 pos:2 dataAddress:104 value:test6
+
+SELECT key:7
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:7 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:7 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:2 tmp:6
+[indexFile_find] key:7 address:128 begin:2 end:3 middle:2 tmp:6 size:3
+[indexFile_find] last:7
+select find result:1
+dataFile_find dataAddress:144 value:test7 tmp:test7
+SELECT key:7 indexAddress:128 pos:3 dataAddress:144 value:test7
+
+REMOVE key:4
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:4 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:4 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:5
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:4 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:4
+[indexFile_deleteAndUnderflow] indexAddress:48 pos:2 size:2
+[indexFile_delete] indexAddress:48 pos:2 size:2
+[indexFile_deleteAndUnderflow] parent:88 parentPosition:2 parentSize:3
+[indexFile_borrowRight] indexAddress:48 size:1 right:128 rightSize:3 parent:88 parentPosition:2
+[indexFile_borrowRight] borrowKey:5 borrowValue:-64
+[indexFile_borrowRight] index[0]:6 data[0]:-104
+[indexFile_borrowRight] index[1]:7 data[1]:-144
+[indexFile_borrowRight] parent:88 parentPosition:3
+
+SELECT key:1
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:1 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:1 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:1 address:8 begin:2 end:2 middle:2 tmp:1 size:3
+select find result:1
+dataFile_find dataAddress:4 value:test1 tmp:test1
+SELECT key:1 indexAddress:8 pos:2 dataAddress:4 value:test1
+
+SELECT key:2
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:2 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:2 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:2 address:8 begin:2 end:3 middle:2 tmp:1 size:3
+[indexFile_find] last:2
+select find result:1
+dataFile_find dataAddress:24 value:test2 tmp:test2
+SELECT key:2 indexAddress:8 pos:3 dataAddress:24 value:test2
+
+SELECT key:3
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:3 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:3 address:88 begin:2 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:3 address:48 begin:1 end:1 middle:1 tmp:3 size:2
+select find result:1
+dataFile_find dataAddress:44 value:test3 tmp:test3
+SELECT key:3 indexAddress:48 pos:1 dataAddress:44 value:test3
+
+SELECT key:5
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:5 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:5 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:6
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:5 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:5
+select find result:1
+dataFile_find dataAddress:64 value:test5 tmp:test5
+SELECT key:5 indexAddress:48 pos:2 dataAddress:64 value:test5
+
+SELECT key:6
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:6 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:6 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:6
+[indexFile_find] middle:1 tmp:6
+[indexFile_find] key:6 address:128 begin:1 end:1 middle:1 tmp:6 size:2
+select find result:1
+dataFile_find dataAddress:104 value:test6 tmp:test6
+SELECT key:6 indexAddress:128 pos:1 dataAddress:104 value:test6
+
+SELECT key:7
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:7 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:7 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:6
+[indexFile_find] middle:1 tmp:6
+[indexFile_find] key:7 address:128 begin:1 end:2 middle:1 tmp:6 size:2
+[indexFile_find] last:7
+select find result:1
+dataFile_find dataAddress:144 value:test7 tmp:test7
+SELECT key:7 indexAddress:128 pos:2 dataAddress:144 value:test7
+
+INSERT key:8 value:test8
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:8 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:8 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:6
+[indexFile_find] middle:1 tmp:6
+[indexFile_find] key:8 address:128 begin:1 end:2 middle:1 tmp:6 size:2
+[indexFile_find] last:7
+insert find result:4
+dataFile_add value:test8 dataAddress:84 next:124
+insert key:8 dataAddress:-84 indexAddress:128 pos:2 size:2
+indexFile_addAndOverflow key:8 dataAddress:-84 indexAddress:128 pos:2 size:2
+indexFile_add key:8 dataAddress:-84 indexAddress:128 pos:2 size:2
+
+REMOVE key:5
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:5 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:5 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:6
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:5 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:5
+[indexFile_deleteAndUnderflow] indexAddress:48 pos:2 size:2
+[indexFile_delete] indexAddress:48 pos:2 size:2
+[indexFile_deleteAndUnderflow] parent:88 parentPosition:2 parentSize:3
+[indexFile_borrowRight] indexAddress:48 size:1 right:128 rightSize:3 parent:88 parentPosition:2
+[indexFile_borrowRight] borrowKey:6 borrowValue:-104
+[indexFile_borrowRight] index[0]:7 data[0]:-144
+[indexFile_borrowRight] index[1]:8 data[1]:-84
+[indexFile_borrowRight] parent:88 parentPosition:3
+
+SELECT key:1
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:1 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:1 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:1 address:8 begin:2 end:2 middle:2 tmp:1 size:3
+select find result:1
+dataFile_find dataAddress:4 value:test1 tmp:test1
+SELECT key:1 indexAddress:8 pos:2 dataAddress:4 value:test1
+
+SELECT key:2
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:2 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:2 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:2 address:8 begin:2 end:3 middle:2 tmp:1 size:3
+[indexFile_find] last:2
+select find result:1
+dataFile_find dataAddress:24 value:test2 tmp:test2
+SELECT key:2 indexAddress:8 pos:3 dataAddress:24 value:test2
+
+SELECT key:3
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:3 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:3 address:88 begin:2 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:3 address:48 begin:1 end:1 middle:1 tmp:3 size:2
+select find result:1
+dataFile_find dataAddress:44 value:test3 tmp:test3
+SELECT key:3 indexAddress:48 pos:1 dataAddress:44 value:test3
+
+SELECT key:6
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:6 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:6 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:3
+[indexFile_find] key:6 address:48 begin:1 end:2 middle:1 tmp:3 size:2
+[indexFile_find] last:6
+select find result:1
+dataFile_find dataAddress:104 value:test6 tmp:test6
+SELECT key:6 indexAddress:48 pos:2 dataAddress:104 value:test6
+
+SELECT key:7
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:7 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:7 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:7
+[indexFile_find] key:7 address:128 begin:1 end:1 middle:1 tmp:7 size:2
+select find result:1
+dataFile_find dataAddress:144 value:test7 tmp:test7
+SELECT key:7 indexAddress:128 pos:1 dataAddress:144 value:test7
+
+SELECT key:8
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:8 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:8 address:88 begin:2 end:3 middle:2 tmp:3 size:3
+[indexFile_find] last:7
+[indexFile_find] middle:1 tmp:7
+[indexFile_find] key:8 address:128 begin:1 end:2 middle:1 tmp:7 size:2
+[indexFile_find] last:8
+select find result:1
+dataFile_find dataAddress:84 value:test8 tmp:test8
+SELECT key:8 indexAddress:128 pos:2 dataAddress:84 value:test8
+
+SELECT key:-1
+[indexFile_find] middle:1 tmp:-1
+[indexFile_find] key:-1 address:248 begin:1 end:1 middle:1 tmp:-1 size:1
+[indexFile_find] last:-1
+[indexFile_find] middle:2 tmp:3
+[indexFile_find] key:-1 address:88 begin:1 end:2 middle:2 tmp:3 size:3
+[indexFile_find] middle:2 tmp:1
+[indexFile_find] key:-1 address:8 begin:1 end:2 middle:2 tmp:1 size:3
+select find result:1
+dataFile_find dataAddress:164 value:test9 tmp:test9
+SELECT key:-1 indexAddress:8 pos:1 dataAddress:164 value:test9

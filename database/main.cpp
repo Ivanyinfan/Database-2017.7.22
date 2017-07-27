@@ -23,6 +23,44 @@ int main()
 			break;
 		}
 	}
+	database.remove(8);
+	for (int i = 1; i < 8; ++i)
+	{
+		if (database.select(i, value))
+			cout << value << endl;
+		else
+		{
+			cout << i << " error" << endl;
+			break;
+		}
+	}
+	database.remove(4);
+	for (int i = 1; i < 8; ++i)
+	{
+		if (i == 4)
+			continue;
+		if (database.select(i, value))
+			cout << value << endl;
+		else
+		{
+			cout << i << " error" << endl;
+			break;
+		}
+	}
+	database.insert(8, "test8");
+	database.remove(5);
+	for (int i = 1; i <= 8; ++i)
+	{
+		if (i == 4 || i == 5)
+			continue;
+		if (database.select(i, value))
+			cout << value << endl;
+		else
+		{
+			cout << i << " error" << endl;
+			break;
+		}
+	}
 	if (database.select(-1, value))
 		cout << value << endl;
 	else
