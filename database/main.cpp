@@ -30,10 +30,6 @@ int main()
 	cout << value << endl;
 	value = "hehe";
 	cache.update(9, value);
-	if (cache.remove(10))
-		cout << "error" << endl;
-	if (cache.remove(2))
-		cout << "remo" << endl;
 	vector<int> key2; vector<string> value2;
 	cache.save(&key2, &value2);
 	for (int i = 0; i < key2.size(); ++i)

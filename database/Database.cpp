@@ -693,12 +693,20 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 					indexFile_borrowRight(indexAddress, size, right, rightSize, parent, parentPosition);
 				else
 				{
-					indexFile.seekg(parent + 12 + 8 * (parentPosition - 1) + 4);
-					indexFile.read((char *)&left, sizeof(int));
-					indexFile.seekg(left + 8);
-					indexFile.read((char *)&leftSize, sizeof(int));
-					if (leftSize > (scale + 1) / 2)
-						indexFile_borrowLeft(indexAddress, size, left, leftSize, parent, parentPosition);
+					if (parentPosition != 1)
+					{
+						indexFile.seekg(parent + 12 + 8 * (parentPosition - 1) + 4);
+						indexFile.read((char *)&left, sizeof(int));
+						indexFile.seekg(left + 8);
+						indexFile.read((char *)&leftSize, sizeof(int));
+						if (leftSize > (scale + 1) / 2)
+							indexFile_borrowLeft(indexAddress, size, left, leftSize, parent, parentPosition);
+						else
+						{
+							indexFile_mergeRight(indexAddress, size, right, rightSize);
+							indexFile_deleteAndUnderflow(parent, parentPosition + 1, parentSize);
+						}
+					}
 					else
 					{
 						indexFile_mergeRight(indexAddress, size, right, rightSize);
@@ -713,6 +721,8 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 bool Database::select(const int key, string &value)
 {
 	resultFile << endl << "SELECT key:" << key << endl;
+	if (cache.select(key, value))
+		return true;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	resultFile << "select find result:" << result << endl;
@@ -720,6 +730,11 @@ bool Database::select(const int key, string &value)
 		return false;
 	dataFile_find(dataAddress, value);
 	resultFile << "SELECT key:" << key << " indexAddress:" << indexAddress << " pos:" << pos << " dataAddress:" << dataAddress << " value:" << value << endl;
+	int oldKey;
+	string oldValue;
+	result = cache.insert(key, value, &oldKey, &oldValue);
+	if (result == 2)
+		update(oldKey, oldValue);
 	return true;
 }
 
@@ -727,6 +742,8 @@ bool Database::insert(const int key, const string &value)
 {
 	resultFile << endl << "INSERT key:" << key << " value:" << value << endl;
 	string fvalue;
+	if (cache.select(key, fvalue))
+		return false;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	resultFile << "insert find result:" << result << endl;
@@ -735,12 +752,18 @@ bool Database::insert(const int key, const string &value)
 	dataAddress = -dataFile_add(value);
 	resultFile << "insert key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
 	indexFile_addAndOverflow(key, dataAddress, indexAddress, pos, size);
+	int oldKey;
+	string oldValue;
+	result = cache.insert(key, value, &oldKey, &oldValue);
+	if (result == 2)
+		update(oldKey, oldValue);
 	return true;
 }
 
 bool Database::remove(const int key)
 {
 	resultFile << endl << "REMOVE key:" << key << endl;
+	cache.remove(key);
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	if (result != 1)
@@ -758,11 +781,21 @@ bool Database::update(const int key, string &value)
 	if (result != 1)
 		return false;
 	dataFile_replace(dataAddress, value);
+	int oldKey;
+	string oldValue;
+	result = cache.insert(key, value, &oldKey, &oldValue);
+	if (result == 2)
+		update(oldKey, oldValue);
 	return true;
 }
 
 Database::~Database()
 {
+	vector<int> key;
+	vector<string> value;
+	cache.save(&key, &value);
+	for (int i = 0; i < key.size(); ++i)
+		update(key[i], value[i]);
 	indexFile.close();
 	dataFile.close();
 	resultFile.close();

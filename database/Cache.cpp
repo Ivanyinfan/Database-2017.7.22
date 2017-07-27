@@ -37,13 +37,12 @@ int Cache::insert(const int key, const string &value, int *oldKey, string *oldVa
 	return result;
 }
 
-bool Cache::remove(const int key)
+void Cache::remove(const int key)
 {
 	int set = GETSET(key);
 	int tag = GETTAG(key);
-	if (tag != GETTAG(cache[set].key) || !cache[set].valid)
-		return false;
-	cache[set].valid = 0;
+	if (tag == GETTAG(cache[set].key))
+		cache[set].valid = 0;
 }
 
 bool Cache::update(const int key, string &value)

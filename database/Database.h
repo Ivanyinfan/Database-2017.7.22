@@ -31,6 +31,7 @@ public:
 private:
 	int scale;
 	fstream indexFile, dataFile;
+	Cache cache;
 	fstream resultFile;
 	const int ZERO = 0;
 };

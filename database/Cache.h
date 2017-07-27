@@ -27,7 +27,7 @@ public:
 	Cache();
 	bool select(const int key, string &value);
 	int insert(const int key, const string &value,int *oldKey,string *oldValue);
-	bool remove(const int key);
+	void remove(const int key);
 	bool update(const int key, string &value);
 	void save(vector<int> *key, vector<string> *value);
 	~Cache() {}
