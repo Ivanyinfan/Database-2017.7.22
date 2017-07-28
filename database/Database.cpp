@@ -2,9 +2,9 @@
 
 Database::Database()
 {
-	scale = 5;
-	indexFile.open("index.txt", ios::in | ios::out | ios::binary | ios::trunc);
-	dataFile.open("data.txt", ios::in | ios::out | ios::binary | ios::trunc);
+	scale = 10;
+	indexFile.open("index.txt", ios::in | ios::out | ios::binary);
+	dataFile.open("data.txt", ios::in | ios::out | ios::binary);
 	logFile.open("log.txt", ios::in | ios::out | ios::trunc);
 	/*if (!indexFile)
 	{*/
@@ -691,8 +691,8 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 						int firstEmpty;
 						indexFile.seekg(4);
 						indexFile.read((char *)&firstEmpty, sizeof(int));
-						indexFile.seekp(firstEmpty);
-						indexFile.write((char *)&indexAddress, sizeof(int));
+						indexFile.seekp(indexAddress);
+						indexFile.write((char *)&firstEmpty, sizeof(int));
 						indexFile.seekp(0);
 						indexFile.write((char *)&dataAddress, sizeof(int));
 						indexFile.write((char *)&indexAddress, sizeof(int));
@@ -762,7 +762,7 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 
 bool Database::file_update(const int key, string &value)
 {
-	logFile << endl << "[file_update] key:" << key << " value:" << value << endl;
+	logFile << "[file_update] key:" << key << " value:" << value << endl;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	if (result != 1)
@@ -774,8 +774,8 @@ bool Database::file_update(const int key, string &value)
 bool Database::select(const int key, string &value)
 {
 	logFile << endl << "SELECT key:" << key << endl;
-	if (cache.select(key, value))
-		return true;
+	//if (cache.select(key, value))
+		//return true;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	logFile << "SELECT find result:" << result << endl;
@@ -783,11 +783,11 @@ bool Database::select(const int key, string &value)
 		return false;
 	dataFile_find(dataAddress, value);
 	logFile << "SELECT key:" << key << " indexAddress:" << indexAddress << " pos:" << pos << " dataAddress:" << dataAddress << " value:" << value << endl;
-	int oldKey;
-	string oldValue;
-	result = cache.insert(key, value, &oldKey, &oldValue);
-	if (result == 2)
-		file_update(oldKey, oldValue);
+	//int oldKey;
+	//string oldValue;
+	//result = cache.insert(key, value, &oldKey, &oldValue);
+	//if (result == 2)
+		//file_update(oldKey, oldValue);
 	return true;
 }
 
@@ -805,18 +805,18 @@ bool Database::insert(const int key, const string &value)
 	dataAddress = -dataFile_add(value);
 	logFile << "INSERT key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
 	indexFile_addAndOverflow(key, dataAddress, indexAddress, pos, size);
-	int oldKey;
-	string oldValue;
-	result = cache.insert(key, value, &oldKey, &oldValue);
-	if (result == 2)
-		file_update(oldKey, oldValue);
+	//int oldKey;
+	//string oldValue;
+	//result = cache.insert(key, value, &oldKey, &oldValue);
+	//if (result == 2)
+		//file_update(oldKey, oldValue);
 	return true;
 }
 
 bool Database::remove(const int key)
 {
 	logFile << endl << "REMOVE key:" << key << endl;
-	cache.remove(key);
+	//cache.remove(key);
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	if (result != 1)
@@ -830,18 +830,18 @@ bool Database::update(const int key, string &value)
 {
 	logFile << endl << "UPDATE key:" << key << " value:" << value << endl;
 	int result;
-	result = cache.update(key, value);
-	if (!result)
-	{
+	//result = cache.update(key, value);
+	//if (!result)
+	//{
 		result = file_update(key, value);
 		if (!result)
 			return false;
-		int oldKey;
-		string oldValue;
-		result = cache.insert(key, value, &oldKey, &oldValue);
-		if (result == 2)
-			file_update(oldKey, oldValue);
-	}
+		//int oldKey;
+		//string oldValue;
+		//result = cache.insert(key, value, &oldKey, &oldValue);
+		//if (result == 2)
+			//file_update(oldKey, oldValue);
+	//}
 	return true;
 }
 
