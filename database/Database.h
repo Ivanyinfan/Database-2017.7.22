@@ -23,6 +23,7 @@ public:
 	void indexFile_mergeLeft(const int indexAddress, const int size, const int left, int leftSize);
 	void indexFile_mergeRight(const int indexAddress, int size, const int right, const int rightSize);
 	void indexFile_deleteAndUnderflow(const int indexAddress, const int pos, int size);
+	bool file_update(const int key, string &value);
 	bool select(const int key, string &value);
 	bool insert(const int key, const string &value);
 	bool remove(const int key);

@@ -760,11 +760,22 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 	}
 }
 
+bool Database::file_update(const int key, string &value)
+{
+	logFile << endl << "[file_update] key:" << key << " value:" << value << endl;
+	int indexAddress, pos, size, dataAddress;
+	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
+	if (result != 1)
+		return false;
+	dataFile_replace(dataAddress, value);
+	return true;
+}
+
 bool Database::select(const int key, string &value)
 {
 	logFile << endl << "SELECT key:" << key << endl;
-	//if (cache.select(key, value))
-		//return true;
+	if (cache.select(key, value))
+		return true;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	logFile << "SELECT find result:" << result << endl;
@@ -774,9 +785,9 @@ bool Database::select(const int key, string &value)
 	logFile << "SELECT key:" << key << " indexAddress:" << indexAddress << " pos:" << pos << " dataAddress:" << dataAddress << " value:" << value << endl;
 	int oldKey;
 	string oldValue;
-	//result = cache.insert(key, value, &oldKey, &oldValue);
-	//if (result == 2)
-		//update(oldKey, oldValue);
+	result = cache.insert(key, value, &oldKey, &oldValue);
+	if (result == 2)
+		file_update(oldKey, oldValue);
 	return true;
 }
 
@@ -796,16 +807,16 @@ bool Database::insert(const int key, const string &value)
 	indexFile_addAndOverflow(key, dataAddress, indexAddress, pos, size);
 	int oldKey;
 	string oldValue;
-	//result = cache.insert(key, value, &oldKey, &oldValue);
-	//if (result == 2)
-		//update(oldKey, oldValue);
+	result = cache.insert(key, value, &oldKey, &oldValue);
+	if (result == 2)
+		file_update(oldKey, oldValue);
 	return true;
 }
 
 bool Database::remove(const int key)
 {
 	logFile << endl << "REMOVE key:" << key << endl;
-	//cache.remove(key);
+	cache.remove(key);
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	if (result != 1)
@@ -818,20 +829,19 @@ bool Database::remove(const int key)
 bool Database::update(const int key, string &value)
 {
 	logFile << endl << "UPDATE key:" << key << " value:" << value << endl;
-	int indexAddress, pos, size, dataAddress;
-	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
-	if (result != 1)
-		return false;
-	dataFile_replace(dataAddress, value);
-	int oldKey;
-	string oldValue;
-	//result = cache.update(key, value);
-	//if (!result)
-	//{
-		//result = cache.insert(key, value, &oldKey, &oldValue);
-		//if (result == 2)
-			//update(oldKey, oldValue);
-	//}
+	int result;
+	result = cache.update(key, value);
+	if (!result)
+	{
+		result = file_update(key, value);
+		if (!result)
+			return false;
+		int oldKey;
+		string oldValue;
+		result = cache.insert(key, value, &oldKey, &oldValue);
+		if (result == 2)
+			file_update(oldKey, oldValue);
+	}
 	return true;
 }
 
@@ -841,7 +851,7 @@ Database::~Database()
 	vector<string> value;
 	cache.save(&key, &value);
 	for (int i = 0; i < key.size(); ++i)
-		update(key[i], value[i]);
+		file_update(key[i], value[i]);
 	indexFile.close();
 	dataFile.close();
 	logFile.close();
