@@ -3847,9 +3847,9 @@ indexFile_addAndOverflow key:11 dataAddress:-744 indexAddress:8 pos:5 size:5
 [indexFile_addAndOverflow] data[1]:-84
 [indexFile_addAndOverflow] index[2]:11
 [indexFile_addAndOverflow] data[2]:-744
-[indexFile_addAndOverflow] new node firstEmpty:120 nextEmpty:176
+[indexFile_addAndOverflow] new node firstEmpty:120 nextEmpty:232
 [indexFile_addAndOverflow] currentLeaf:120 nextLeaf:64
-[indexFile_addAndOverflow] newRoot:176 left:1 leftChild:8 right:7 rightChild:120 nextEmpty:960
+[indexFile_addAndOverflow] newRoot:232 left:1 leftChild:8 right:7 rightChild:120 nextEmpty:848
 
 SELECT key:1
 
@@ -3865,7 +3865,7 @@ SELECT key:11
 
 INSERT key:13 value:kovmtddspiyln
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:13 address:176 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:13 address:232 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:7
 [indexFile_find] middle:2 tmp:9
 [indexFile_find] key:13 address:120 begin:2 end:3 middle:2 tmp:9 size:3
@@ -3892,7 +3892,7 @@ SELECT key:13
 
 INSERT key:15 value:hymea
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:15 address:176 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:15 address:232 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:7
 [indexFile_find] middle:2 tmp:9
 [indexFile_find] middle:3 tmp:11
@@ -3922,7 +3922,7 @@ SELECT key:15
 
 INSERT key:17 value:yov
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:17 address:176 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:17 address:232 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:7
 [indexFile_find] middle:3 tmp:11
 [indexFile_find] middle:4 tmp:13
@@ -3938,10 +3938,10 @@ indexFile_addAndOverflow key:17 dataAddress:-184 indexAddress:120 pos:5 size:5
 [indexFile_addAndOverflow] data[1]:-724
 [indexFile_addAndOverflow] index[2]:17
 [indexFile_addAndOverflow] data[2]:-184
-[indexFile_addAndOverflow] new node firstEmpty:960 nextEmpty:904
-[indexFile_addAndOverflow] currentLeaf:960 nextLeaf:64
-indexFile_addAndOverflow key:13 dataAddress:960 indexAddress:176 pos:2 size:2
-[indexFile_add] key:13 dataAddress:960 indexAddress:176 pos:2 size:2
+[indexFile_addAndOverflow] new node firstEmpty:848 nextEmpty:288
+[indexFile_addAndOverflow] currentLeaf:848 nextLeaf:64
+indexFile_addAndOverflow key:13 dataAddress:848 indexAddress:232 pos:2 size:2
+[indexFile_add] key:13 dataAddress:848 indexAddress:232 pos:2 size:2
 
 SELECT key:1
 
@@ -3963,16 +3963,16 @@ SELECT key:17
 
 INSERT key:19 value:ffzs
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:19 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:19 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:15
-[indexFile_find] key:19 address:960 begin:2 end:3 middle:2 tmp:15 size:3
+[indexFile_find] key:19 address:848 begin:2 end:3 middle:2 tmp:15 size:3
 [indexFile_find] last:17
 INSERT find result:4
 [dataFile_add] value:ffzs dataAddress:204 next:224
-INSERT key:19 dataAddress:-204 indexAddress:960 pos:3 size:3
-indexFile_addAndOverflow key:19 dataAddress:-204 indexAddress:960 pos:3 size:3
-[indexFile_add] key:19 dataAddress:-204 indexAddress:960 pos:3 size:3
+INSERT key:19 dataAddress:-204 indexAddress:848 pos:3 size:3
+indexFile_addAndOverflow key:19 dataAddress:-204 indexAddress:848 pos:3 size:3
+[indexFile_add] key:19 dataAddress:-204 indexAddress:848 pos:3 size:3
 
 SELECT key:1
 
@@ -3996,17 +3996,17 @@ SELECT key:19
 
 INSERT key:21 value:axthshpcr
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:21 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:21 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:15
 [indexFile_find] middle:3 tmp:17
-[indexFile_find] key:21 address:960 begin:3 end:4 middle:3 tmp:17 size:4
+[indexFile_find] key:21 address:848 begin:3 end:4 middle:3 tmp:17 size:4
 [indexFile_find] last:19
 INSERT find result:4
 [dataFile_add] value:axthshpcr dataAddress:224 next:244
-INSERT key:21 dataAddress:-224 indexAddress:960 pos:4 size:4
-indexFile_addAndOverflow key:21 dataAddress:-224 indexAddress:960 pos:4 size:4
-[indexFile_add] key:21 dataAddress:-224 indexAddress:960 pos:4 size:4
+INSERT key:21 dataAddress:-224 indexAddress:848 pos:4 size:4
+indexFile_addAndOverflow key:21 dataAddress:-224 indexAddress:848 pos:4 size:4
+[indexFile_add] key:21 dataAddress:-224 indexAddress:848 pos:4 size:4
 
 SELECT key:1
 
@@ -4032,26 +4032,26 @@ SELECT key:21
 
 INSERT key:23 value:uyxgvteazuejkyj
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:23 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:23 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:3 tmp:17
 [indexFile_find] middle:4 tmp:19
-[indexFile_find] key:23 address:960 begin:4 end:5 middle:4 tmp:19 size:5
+[indexFile_find] key:23 address:848 begin:4 end:5 middle:4 tmp:19 size:5
 [indexFile_find] last:21
 INSERT find result:4
 [dataFile_add] value:uyxgvteazuejkyj dataAddress:244 next:264
-INSERT key:23 dataAddress:-244 indexAddress:960 pos:5 size:5
-indexFile_addAndOverflow key:23 dataAddress:-244 indexAddress:960 pos:5 size:5
+INSERT key:23 dataAddress:-244 indexAddress:848 pos:5 size:5
+indexFile_addAndOverflow key:23 dataAddress:-244 indexAddress:848 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:19
 [indexFile_addAndOverflow] data[0]:-204
 [indexFile_addAndOverflow] index[1]:21
 [indexFile_addAndOverflow] data[1]:-224
 [indexFile_addAndOverflow] index[2]:23
 [indexFile_addAndOverflow] data[2]:-244
-[indexFile_addAndOverflow] new node firstEmpty:904 nextEmpty:1016
-[indexFile_addAndOverflow] currentLeaf:904 nextLeaf:64
-indexFile_addAndOverflow key:19 dataAddress:904 indexAddress:176 pos:3 size:3
-[indexFile_add] key:19 dataAddress:904 indexAddress:176 pos:3 size:3
+[indexFile_addAndOverflow] new node firstEmpty:288 nextEmpty:344
+[indexFile_addAndOverflow] currentLeaf:288 nextLeaf:64
+indexFile_addAndOverflow key:19 dataAddress:288 indexAddress:232 pos:3 size:3
+[indexFile_add] key:19 dataAddress:288 indexAddress:232 pos:3 size:3
 
 SELECT key:1
 
@@ -4080,16 +4080,16 @@ SELECT key:23
 INSERT key:25 value:ingkfahyw
 [indexFile_find] middle:2 tmp:7
 [indexFile_find] middle:3 tmp:13
-[indexFile_find] key:25 address:176 begin:3 end:4 middle:3 tmp:13 size:4
+[indexFile_find] key:25 address:232 begin:3 end:4 middle:3 tmp:13 size:4
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:21
-[indexFile_find] key:25 address:904 begin:2 end:3 middle:2 tmp:21 size:3
+[indexFile_find] key:25 address:288 begin:2 end:3 middle:2 tmp:21 size:3
 [indexFile_find] last:23
 INSERT find result:4
 [dataFile_add] value:ingkfahyw dataAddress:264 next:284
-INSERT key:25 dataAddress:-264 indexAddress:904 pos:3 size:3
-indexFile_addAndOverflow key:25 dataAddress:-264 indexAddress:904 pos:3 size:3
-[indexFile_add] key:25 dataAddress:-264 indexAddress:904 pos:3 size:3
+INSERT key:25 dataAddress:-264 indexAddress:288 pos:3 size:3
+indexFile_addAndOverflow key:25 dataAddress:-264 indexAddress:288 pos:3 size:3
+[indexFile_add] key:25 dataAddress:-264 indexAddress:288 pos:3 size:3
 
 SELECT key:1
 
@@ -4120,17 +4120,17 @@ SELECT key:25
 INSERT key:27 value:hxissucpyxfttexgy
 [indexFile_find] middle:2 tmp:7
 [indexFile_find] middle:3 tmp:13
-[indexFile_find] key:27 address:176 begin:3 end:4 middle:3 tmp:13 size:4
+[indexFile_find] key:27 address:232 begin:3 end:4 middle:3 tmp:13 size:4
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:21
 [indexFile_find] middle:3 tmp:23
-[indexFile_find] key:27 address:904 begin:3 end:4 middle:3 tmp:23 size:4
+[indexFile_find] key:27 address:288 begin:3 end:4 middle:3 tmp:23 size:4
 [indexFile_find] last:25
 INSERT find result:4
 [dataFile_add] value:hxissucpyxfttexgy dataAddress:284 next:304
-INSERT key:27 dataAddress:-284 indexAddress:904 pos:4 size:4
-indexFile_addAndOverflow key:27 dataAddress:-284 indexAddress:904 pos:4 size:4
-[indexFile_add] key:27 dataAddress:-284 indexAddress:904 pos:4 size:4
+INSERT key:27 dataAddress:-284 indexAddress:288 pos:4 size:4
+indexFile_addAndOverflow key:27 dataAddress:-284 indexAddress:288 pos:4 size:4
+[indexFile_add] key:27 dataAddress:-284 indexAddress:288 pos:4 size:4
 
 SELECT key:1
 
@@ -4163,26 +4163,26 @@ SELECT key:27
 INSERT key:29 value:uzuazqyxjrxeqa
 [indexFile_find] middle:2 tmp:7
 [indexFile_find] middle:3 tmp:13
-[indexFile_find] key:29 address:176 begin:3 end:4 middle:3 tmp:13 size:4
+[indexFile_find] key:29 address:232 begin:3 end:4 middle:3 tmp:13 size:4
 [indexFile_find] last:19
 [indexFile_find] middle:3 tmp:23
 [indexFile_find] middle:4 tmp:25
-[indexFile_find] key:29 address:904 begin:4 end:5 middle:4 tmp:25 size:5
+[indexFile_find] key:29 address:288 begin:4 end:5 middle:4 tmp:25 size:5
 [indexFile_find] last:27
 INSERT find result:4
 [dataFile_add] value:uzuazqyxjrxeqa dataAddress:304 next:324
-INSERT key:29 dataAddress:-304 indexAddress:904 pos:5 size:5
-indexFile_addAndOverflow key:29 dataAddress:-304 indexAddress:904 pos:5 size:5
+INSERT key:29 dataAddress:-304 indexAddress:288 pos:5 size:5
+indexFile_addAndOverflow key:29 dataAddress:-304 indexAddress:288 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:25
 [indexFile_addAndOverflow] data[0]:-264
 [indexFile_addAndOverflow] index[1]:27
 [indexFile_addAndOverflow] data[1]:-284
 [indexFile_addAndOverflow] index[2]:29
 [indexFile_addAndOverflow] data[2]:-304
-[indexFile_addAndOverflow] new node firstEmpty:1016 nextEmpty:1072
-[indexFile_addAndOverflow] currentLeaf:1016 nextLeaf:64
-indexFile_addAndOverflow key:25 dataAddress:1016 indexAddress:176 pos:4 size:4
-[indexFile_add] key:25 dataAddress:1016 indexAddress:176 pos:4 size:4
+[indexFile_addAndOverflow] new node firstEmpty:344 nextEmpty:456
+[indexFile_addAndOverflow] currentLeaf:344 nextLeaf:64
+indexFile_addAndOverflow key:25 dataAddress:344 indexAddress:232 pos:4 size:4
+[indexFile_add] key:25 dataAddress:344 indexAddress:232 pos:4 size:4
 
 SELECT key:1
 
@@ -4217,16 +4217,16 @@ SELECT key:29
 INSERT key:31 value:cwwqsmsalckicybsfa
 [indexFile_find] middle:3 tmp:13
 [indexFile_find] middle:4 tmp:19
-[indexFile_find] key:31 address:176 begin:4 end:5 middle:4 tmp:19 size:5
+[indexFile_find] key:31 address:232 begin:4 end:5 middle:4 tmp:19 size:5
 [indexFile_find] last:25
 [indexFile_find] middle:2 tmp:27
-[indexFile_find] key:31 address:1016 begin:2 end:3 middle:2 tmp:27 size:3
+[indexFile_find] key:31 address:344 begin:2 end:3 middle:2 tmp:27 size:3
 [indexFile_find] last:29
 INSERT find result:4
 [dataFile_add] value:cwwqsmsalckicybsfa dataAddress:324 next:344
-INSERT key:31 dataAddress:-324 indexAddress:1016 pos:3 size:3
-indexFile_addAndOverflow key:31 dataAddress:-324 indexAddress:1016 pos:3 size:3
-[indexFile_add] key:31 dataAddress:-324 indexAddress:1016 pos:3 size:3
+INSERT key:31 dataAddress:-324 indexAddress:344 pos:3 size:3
+indexFile_addAndOverflow key:31 dataAddress:-324 indexAddress:344 pos:3 size:3
+[indexFile_add] key:31 dataAddress:-324 indexAddress:344 pos:3 size:3
 
 SELECT key:1
 
@@ -4263,17 +4263,17 @@ SELECT key:31
 INSERT key:33 value:gzsqpkf
 [indexFile_find] middle:3 tmp:13
 [indexFile_find] middle:4 tmp:19
-[indexFile_find] key:33 address:176 begin:4 end:5 middle:4 tmp:19 size:5
+[indexFile_find] key:33 address:232 begin:4 end:5 middle:4 tmp:19 size:5
 [indexFile_find] last:25
 [indexFile_find] middle:2 tmp:27
 [indexFile_find] middle:3 tmp:29
-[indexFile_find] key:33 address:1016 begin:3 end:4 middle:3 tmp:29 size:4
+[indexFile_find] key:33 address:344 begin:3 end:4 middle:3 tmp:29 size:4
 [indexFile_find] last:31
 INSERT find result:4
 [dataFile_add] value:gzsqpkf dataAddress:344 next:364
-INSERT key:33 dataAddress:-344 indexAddress:1016 pos:4 size:4
-indexFile_addAndOverflow key:33 dataAddress:-344 indexAddress:1016 pos:4 size:4
-[indexFile_add] key:33 dataAddress:-344 indexAddress:1016 pos:4 size:4
+INSERT key:33 dataAddress:-344 indexAddress:344 pos:4 size:4
+indexFile_addAndOverflow key:33 dataAddress:-344 indexAddress:344 pos:4 size:4
+[indexFile_add] key:33 dataAddress:-344 indexAddress:344 pos:4 size:4
 
 SELECT key:1
 
@@ -4312,33 +4312,33 @@ SELECT key:33
 INSERT key:35 value:rupvewvecjyd
 [indexFile_find] middle:3 tmp:13
 [indexFile_find] middle:4 tmp:19
-[indexFile_find] key:35 address:176 begin:4 end:5 middle:4 tmp:19 size:5
+[indexFile_find] key:35 address:232 begin:4 end:5 middle:4 tmp:19 size:5
 [indexFile_find] last:25
 [indexFile_find] middle:3 tmp:29
 [indexFile_find] middle:4 tmp:31
-[indexFile_find] key:35 address:1016 begin:4 end:5 middle:4 tmp:31 size:5
+[indexFile_find] key:35 address:344 begin:4 end:5 middle:4 tmp:31 size:5
 [indexFile_find] last:33
 INSERT find result:4
 [dataFile_add] value:rupvewvecjyd dataAddress:364 next:384
-INSERT key:35 dataAddress:-364 indexAddress:1016 pos:5 size:5
-indexFile_addAndOverflow key:35 dataAddress:-364 indexAddress:1016 pos:5 size:5
+INSERT key:35 dataAddress:-364 indexAddress:344 pos:5 size:5
+indexFile_addAndOverflow key:35 dataAddress:-364 indexAddress:344 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:31
 [indexFile_addAndOverflow] data[0]:-324
 [indexFile_addAndOverflow] index[1]:33
 [indexFile_addAndOverflow] data[1]:-344
 [indexFile_addAndOverflow] index[2]:35
 [indexFile_addAndOverflow] data[2]:-364
-[indexFile_addAndOverflow] new node firstEmpty:1072 nextEmpty:1128
-[indexFile_addAndOverflow] currentLeaf:1072 nextLeaf:64
-indexFile_addAndOverflow key:31 dataAddress:1072 indexAddress:176 pos:5 size:5
+[indexFile_addAndOverflow] new node firstEmpty:456 nextEmpty:680
+[indexFile_addAndOverflow] currentLeaf:456 nextLeaf:64
+indexFile_addAndOverflow key:31 dataAddress:456 indexAddress:232 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:19
-[indexFile_addAndOverflow] data[0]:904
+[indexFile_addAndOverflow] data[0]:288
 [indexFile_addAndOverflow] index[1]:25
-[indexFile_addAndOverflow] data[1]:1016
+[indexFile_addAndOverflow] data[1]:344
 [indexFile_addAndOverflow] index[2]:31
-[indexFile_addAndOverflow] data[2]:1072
-[indexFile_addAndOverflow] new node firstEmpty:1128 nextEmpty:1184
-[indexFile_addAndOverflow] newRoot:1184 left:1 leftChild:176 right:19 rightChild:1128 nextEmpty:1240
+[indexFile_addAndOverflow] data[2]:456
+[indexFile_addAndOverflow] new node firstEmpty:680 nextEmpty:512
+[indexFile_addAndOverflow] newRoot:512 left:1 leftChild:232 right:19 rightChild:680 nextEmpty:568
 
 SELECT key:1
 
@@ -4378,19 +4378,19 @@ SELECT key:35
 
 INSERT key:37 value:zctggj
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:37 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:37 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:37 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:37 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:33
-[indexFile_find] key:37 address:1072 begin:2 end:3 middle:2 tmp:33 size:3
+[indexFile_find] key:37 address:456 begin:2 end:3 middle:2 tmp:33 size:3
 [indexFile_find] last:35
 INSERT find result:4
 [dataFile_add] value:zctggj dataAddress:384 next:404
-INSERT key:37 dataAddress:-384 indexAddress:1072 pos:3 size:3
-indexFile_addAndOverflow key:37 dataAddress:-384 indexAddress:1072 pos:3 size:3
-[indexFile_add] key:37 dataAddress:-384 indexAddress:1072 pos:3 size:3
+INSERT key:37 dataAddress:-384 indexAddress:456 pos:3 size:3
+indexFile_addAndOverflow key:37 dataAddress:-384 indexAddress:456 pos:3 size:3
+[indexFile_add] key:37 dataAddress:-384 indexAddress:456 pos:3 size:3
 
 SELECT key:1
 
@@ -4432,20 +4432,20 @@ SELECT key:37
 
 INSERT key:39 value:dlestxjszyphgo
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:39 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:39 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:39 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:39 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:33
 [indexFile_find] middle:3 tmp:35
-[indexFile_find] key:39 address:1072 begin:3 end:4 middle:3 tmp:35 size:4
+[indexFile_find] key:39 address:456 begin:3 end:4 middle:3 tmp:35 size:4
 [indexFile_find] last:37
 INSERT find result:4
 [dataFile_add] value:dlestxjszyphgo dataAddress:404 next:424
-INSERT key:39 dataAddress:-404 indexAddress:1072 pos:4 size:4
-indexFile_addAndOverflow key:39 dataAddress:-404 indexAddress:1072 pos:4 size:4
-[indexFile_add] key:39 dataAddress:-404 indexAddress:1072 pos:4 size:4
+INSERT key:39 dataAddress:-404 indexAddress:456 pos:4 size:4
+indexFile_addAndOverflow key:39 dataAddress:-404 indexAddress:456 pos:4 size:4
+[indexFile_add] key:39 dataAddress:-404 indexAddress:456 pos:4 size:4
 
 SELECT key:1
 
@@ -4489,29 +4489,29 @@ SELECT key:39
 
 INSERT key:41 value:kqofpdju
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:41 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:41 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:41 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:41 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:3 tmp:35
 [indexFile_find] middle:4 tmp:37
-[indexFile_find] key:41 address:1072 begin:4 end:5 middle:4 tmp:37 size:5
+[indexFile_find] key:41 address:456 begin:4 end:5 middle:4 tmp:37 size:5
 [indexFile_find] last:39
 INSERT find result:4
 [dataFile_add] value:kqofpdju dataAddress:424 next:444
-INSERT key:41 dataAddress:-424 indexAddress:1072 pos:5 size:5
-indexFile_addAndOverflow key:41 dataAddress:-424 indexAddress:1072 pos:5 size:5
+INSERT key:41 dataAddress:-424 indexAddress:456 pos:5 size:5
+indexFile_addAndOverflow key:41 dataAddress:-424 indexAddress:456 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:37
 [indexFile_addAndOverflow] data[0]:-384
 [indexFile_addAndOverflow] index[1]:39
 [indexFile_addAndOverflow] data[1]:-404
 [indexFile_addAndOverflow] index[2]:41
 [indexFile_addAndOverflow] data[2]:-424
-[indexFile_addAndOverflow] new node firstEmpty:1240 nextEmpty:1296
-[indexFile_addAndOverflow] currentLeaf:1240 nextLeaf:64
-indexFile_addAndOverflow key:37 dataAddress:1240 indexAddress:1128 pos:3 size:3
-[indexFile_add] key:37 dataAddress:1240 indexAddress:1128 pos:3 size:3
+[indexFile_addAndOverflow] new node firstEmpty:568 nextEmpty:624
+[indexFile_addAndOverflow] currentLeaf:568 nextLeaf:64
+indexFile_addAndOverflow key:37 dataAddress:568 indexAddress:680 pos:3 size:3
+[indexFile_add] key:37 dataAddress:568 indexAddress:680 pos:3 size:3
 
 SELECT key:1
 
@@ -4557,20 +4557,20 @@ SELECT key:41
 
 INSERT key:43 value:ebfdeiakszgswkzzue
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:43 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:43 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
 [indexFile_find] middle:3 tmp:31
-[indexFile_find] key:43 address:1128 begin:3 end:4 middle:3 tmp:31 size:4
+[indexFile_find] key:43 address:680 begin:3 end:4 middle:3 tmp:31 size:4
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:39
-[indexFile_find] key:43 address:1240 begin:2 end:3 middle:2 tmp:39 size:3
+[indexFile_find] key:43 address:568 begin:2 end:3 middle:2 tmp:39 size:3
 [indexFile_find] last:41
 INSERT find result:4
 [dataFile_add] value:ebfdeiakszgswkzzue dataAddress:444 next:464
-INSERT key:43 dataAddress:-444 indexAddress:1240 pos:3 size:3
-indexFile_addAndOverflow key:43 dataAddress:-444 indexAddress:1240 pos:3 size:3
-[indexFile_add] key:43 dataAddress:-444 indexAddress:1240 pos:3 size:3
+INSERT key:43 dataAddress:-444 indexAddress:568 pos:3 size:3
+indexFile_addAndOverflow key:43 dataAddress:-444 indexAddress:568 pos:3 size:3
+[indexFile_add] key:43 dataAddress:-444 indexAddress:568 pos:3 size:3
 
 SELECT key:1
 
@@ -4618,21 +4618,21 @@ SELECT key:43
 
 INSERT key:45 value:zmaheuovw
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:45 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:45 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
 [indexFile_find] middle:3 tmp:31
-[indexFile_find] key:45 address:1128 begin:3 end:4 middle:3 tmp:31 size:4
+[indexFile_find] key:45 address:680 begin:3 end:4 middle:3 tmp:31 size:4
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:39
 [indexFile_find] middle:3 tmp:41
-[indexFile_find] key:45 address:1240 begin:3 end:4 middle:3 tmp:41 size:4
+[indexFile_find] key:45 address:568 begin:3 end:4 middle:3 tmp:41 size:4
 [indexFile_find] last:43
 INSERT find result:4
 [dataFile_add] value:zmaheuovw dataAddress:464 next:484
-INSERT key:45 dataAddress:-464 indexAddress:1240 pos:4 size:4
-indexFile_addAndOverflow key:45 dataAddress:-464 indexAddress:1240 pos:4 size:4
-[indexFile_add] key:45 dataAddress:-464 indexAddress:1240 pos:4 size:4
+INSERT key:45 dataAddress:-464 indexAddress:568 pos:4 size:4
+indexFile_addAndOverflow key:45 dataAddress:-464 indexAddress:568 pos:4 size:4
+[indexFile_add] key:45 dataAddress:-464 indexAddress:568 pos:4 size:4
 
 SELECT key:1
 
@@ -4682,30 +4682,30 @@ SELECT key:45
 
 INSERT key:47 value:oniacebdjp
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:47 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:47 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:2 tmp:25
 [indexFile_find] middle:3 tmp:31
-[indexFile_find] key:47 address:1128 begin:3 end:4 middle:3 tmp:31 size:4
+[indexFile_find] key:47 address:680 begin:3 end:4 middle:3 tmp:31 size:4
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:41
 [indexFile_find] middle:4 tmp:43
-[indexFile_find] key:47 address:1240 begin:4 end:5 middle:4 tmp:43 size:5
+[indexFile_find] key:47 address:568 begin:4 end:5 middle:4 tmp:43 size:5
 [indexFile_find] last:45
 INSERT find result:4
 [dataFile_add] value:oniacebdjp dataAddress:484 next:504
-INSERT key:47 dataAddress:-484 indexAddress:1240 pos:5 size:5
-indexFile_addAndOverflow key:47 dataAddress:-484 indexAddress:1240 pos:5 size:5
+INSERT key:47 dataAddress:-484 indexAddress:568 pos:5 size:5
+indexFile_addAndOverflow key:47 dataAddress:-484 indexAddress:568 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:43
 [indexFile_addAndOverflow] data[0]:-444
 [indexFile_addAndOverflow] index[1]:45
 [indexFile_addAndOverflow] data[1]:-464
 [indexFile_addAndOverflow] index[2]:47
 [indexFile_addAndOverflow] data[2]:-484
-[indexFile_addAndOverflow] new node firstEmpty:1296 nextEmpty:1352
-[indexFile_addAndOverflow] currentLeaf:1296 nextLeaf:64
-indexFile_addAndOverflow key:43 dataAddress:1296 indexAddress:1128 pos:4 size:4
-[indexFile_add] key:43 dataAddress:1296 indexAddress:1128 pos:4 size:4
+[indexFile_addAndOverflow] new node firstEmpty:624 nextEmpty:736
+[indexFile_addAndOverflow] currentLeaf:624 nextLeaf:64
+indexFile_addAndOverflow key:43 dataAddress:624 indexAddress:680 pos:4 size:4
+[indexFile_add] key:43 dataAddress:624 indexAddress:680 pos:4 size:4
 
 SELECT key:1
 
@@ -4757,20 +4757,20 @@ SELECT key:47
 
 INSERT key:49 value:jrl
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:49 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:49 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:3 tmp:31
 [indexFile_find] middle:4 tmp:37
-[indexFile_find] key:49 address:1128 begin:4 end:5 middle:4 tmp:37 size:5
+[indexFile_find] key:49 address:680 begin:4 end:5 middle:4 tmp:37 size:5
 [indexFile_find] last:43
 [indexFile_find] middle:2 tmp:45
-[indexFile_find] key:49 address:1296 begin:2 end:3 middle:2 tmp:45 size:3
+[indexFile_find] key:49 address:624 begin:2 end:3 middle:2 tmp:45 size:3
 [indexFile_find] last:47
 INSERT find result:4
 [dataFile_add] value:jrl dataAddress:504 next:524
-INSERT key:49 dataAddress:-504 indexAddress:1296 pos:3 size:3
-indexFile_addAndOverflow key:49 dataAddress:-504 indexAddress:1296 pos:3 size:3
-[indexFile_add] key:49 dataAddress:-504 indexAddress:1296 pos:3 size:3
+INSERT key:49 dataAddress:-504 indexAddress:624 pos:3 size:3
+indexFile_addAndOverflow key:49 dataAddress:-504 indexAddress:624 pos:3 size:3
+[indexFile_add] key:49 dataAddress:-504 indexAddress:624 pos:3 size:3
 
 SELECT key:1
 
@@ -4824,21 +4824,21 @@ SELECT key:49
 
 INSERT key:51 value:wlimayexbedle
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:51 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:51 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:3 tmp:31
 [indexFile_find] middle:4 tmp:37
-[indexFile_find] key:51 address:1128 begin:4 end:5 middle:4 tmp:37 size:5
+[indexFile_find] key:51 address:680 begin:4 end:5 middle:4 tmp:37 size:5
 [indexFile_find] last:43
 [indexFile_find] middle:2 tmp:45
 [indexFile_find] middle:3 tmp:47
-[indexFile_find] key:51 address:1296 begin:3 end:4 middle:3 tmp:47 size:4
+[indexFile_find] key:51 address:624 begin:3 end:4 middle:3 tmp:47 size:4
 [indexFile_find] last:49
 INSERT find result:4
 [dataFile_add] value:wlimayexbedle dataAddress:524 next:544
-INSERT key:51 dataAddress:-524 indexAddress:1296 pos:4 size:4
-indexFile_addAndOverflow key:51 dataAddress:-524 indexAddress:1296 pos:4 size:4
-[indexFile_add] key:51 dataAddress:-524 indexAddress:1296 pos:4 size:4
+INSERT key:51 dataAddress:-524 indexAddress:624 pos:4 size:4
+indexFile_addAndOverflow key:51 dataAddress:-524 indexAddress:624 pos:4 size:4
+[indexFile_add] key:51 dataAddress:-524 indexAddress:624 pos:4 size:4
 
 SELECT key:1
 
@@ -4894,38 +4894,38 @@ SELECT key:51
 
 INSERT key:53 value:xcfctdbe
 [indexFile_find] middle:1 tmp:1
-[indexFile_find] key:53 address:1184 begin:1 end:2 middle:1 tmp:1 size:2
+[indexFile_find] key:53 address:512 begin:1 end:2 middle:1 tmp:1 size:2
 [indexFile_find] last:19
 [indexFile_find] middle:3 tmp:31
 [indexFile_find] middle:4 tmp:37
-[indexFile_find] key:53 address:1128 begin:4 end:5 middle:4 tmp:37 size:5
+[indexFile_find] key:53 address:680 begin:4 end:5 middle:4 tmp:37 size:5
 [indexFile_find] last:43
 [indexFile_find] middle:3 tmp:47
 [indexFile_find] middle:4 tmp:49
-[indexFile_find] key:53 address:1296 begin:4 end:5 middle:4 tmp:49 size:5
+[indexFile_find] key:53 address:624 begin:4 end:5 middle:4 tmp:49 size:5
 [indexFile_find] last:51
 INSERT find result:4
 [dataFile_add] value:xcfctdbe dataAddress:544 next:564
-INSERT key:53 dataAddress:-544 indexAddress:1296 pos:5 size:5
-indexFile_addAndOverflow key:53 dataAddress:-544 indexAddress:1296 pos:5 size:5
+INSERT key:53 dataAddress:-544 indexAddress:624 pos:5 size:5
+indexFile_addAndOverflow key:53 dataAddress:-544 indexAddress:624 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:49
 [indexFile_addAndOverflow] data[0]:-504
 [indexFile_addAndOverflow] index[1]:51
 [indexFile_addAndOverflow] data[1]:-524
 [indexFile_addAndOverflow] index[2]:53
 [indexFile_addAndOverflow] data[2]:-544
-[indexFile_addAndOverflow] new node firstEmpty:1352 nextEmpty:1408
-[indexFile_addAndOverflow] currentLeaf:1352 nextLeaf:64
-indexFile_addAndOverflow key:49 dataAddress:1352 indexAddress:1128 pos:5 size:5
+[indexFile_addAndOverflow] new node firstEmpty:736 nextEmpty:792
+[indexFile_addAndOverflow] currentLeaf:736 nextLeaf:64
+indexFile_addAndOverflow key:49 dataAddress:736 indexAddress:680 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:37
-[indexFile_addAndOverflow] data[0]:1240
+[indexFile_addAndOverflow] data[0]:568
 [indexFile_addAndOverflow] index[1]:43
-[indexFile_addAndOverflow] data[1]:1296
+[indexFile_addAndOverflow] data[1]:624
 [indexFile_addAndOverflow] index[2]:49
-[indexFile_addAndOverflow] data[2]:1352
-[indexFile_addAndOverflow] new node firstEmpty:1408 nextEmpty:1464
-indexFile_addAndOverflow key:37 dataAddress:1408 indexAddress:1184 pos:2 size:2
-[indexFile_add] key:37 dataAddress:1408 indexAddress:1184 pos:2 size:2
+[indexFile_addAndOverflow] data[2]:736
+[indexFile_addAndOverflow] new node firstEmpty:792 nextEmpty:400
+indexFile_addAndOverflow key:37 dataAddress:792 indexAddress:512 pos:2 size:2
+[indexFile_add] key:37 dataAddress:792 indexAddress:512 pos:2 size:2
 
 SELECT key:1
 
@@ -4983,19 +4983,19 @@ SELECT key:53
 
 INSERT key:55 value:rdjdzl
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:55 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:55 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:55 address:1408 begin:2 end:3 middle:2 tmp:43 size:3
+[indexFile_find] key:55 address:792 begin:2 end:3 middle:2 tmp:43 size:3
 [indexFile_find] last:49
 [indexFile_find] middle:2 tmp:51
-[indexFile_find] key:55 address:1352 begin:2 end:3 middle:2 tmp:51 size:3
+[indexFile_find] key:55 address:736 begin:2 end:3 middle:2 tmp:51 size:3
 [indexFile_find] last:53
 INSERT find result:4
 [dataFile_add] value:rdjdzl dataAddress:564 next:584
-INSERT key:55 dataAddress:-564 indexAddress:1352 pos:3 size:3
-indexFile_addAndOverflow key:55 dataAddress:-564 indexAddress:1352 pos:3 size:3
-[indexFile_add] key:55 dataAddress:-564 indexAddress:1352 pos:3 size:3
+INSERT key:55 dataAddress:-564 indexAddress:736 pos:3 size:3
+indexFile_addAndOverflow key:55 dataAddress:-564 indexAddress:736 pos:3 size:3
+[indexFile_add] key:55 dataAddress:-564 indexAddress:736 pos:3 size:3
 
 SELECT key:1
 
@@ -5055,20 +5055,20 @@ SELECT key:55
 
 INSERT key:57 value:i
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:57 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:57 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:57 address:1408 begin:2 end:3 middle:2 tmp:43 size:3
+[indexFile_find] key:57 address:792 begin:2 end:3 middle:2 tmp:43 size:3
 [indexFile_find] last:49
 [indexFile_find] middle:2 tmp:51
 [indexFile_find] middle:3 tmp:53
-[indexFile_find] key:57 address:1352 begin:3 end:4 middle:3 tmp:53 size:4
+[indexFile_find] key:57 address:736 begin:3 end:4 middle:3 tmp:53 size:4
 [indexFile_find] last:55
 INSERT find result:4
 [dataFile_add] value:i dataAddress:584 next:604
-INSERT key:57 dataAddress:-584 indexAddress:1352 pos:4 size:4
-indexFile_addAndOverflow key:57 dataAddress:-584 indexAddress:1352 pos:4 size:4
-[indexFile_add] key:57 dataAddress:-584 indexAddress:1352 pos:4 size:4
+INSERT key:57 dataAddress:-584 indexAddress:736 pos:4 size:4
+indexFile_addAndOverflow key:57 dataAddress:-584 indexAddress:736 pos:4 size:4
+[indexFile_add] key:57 dataAddress:-584 indexAddress:736 pos:4 size:4
 
 SELECT key:1
 
@@ -5130,29 +5130,29 @@ SELECT key:57
 
 INSERT key:59 value:rdqclwceweyyvwjc
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:59 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:59 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:59 address:1408 begin:2 end:3 middle:2 tmp:43 size:3
+[indexFile_find] key:59 address:792 begin:2 end:3 middle:2 tmp:43 size:3
 [indexFile_find] last:49
 [indexFile_find] middle:3 tmp:53
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:59 address:1352 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:59 address:736 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:57
 INSERT find result:4
 [dataFile_add] value:rdqclwceweyyvwjc dataAddress:604 next:624
-INSERT key:59 dataAddress:-604 indexAddress:1352 pos:5 size:5
-indexFile_addAndOverflow key:59 dataAddress:-604 indexAddress:1352 pos:5 size:5
+INSERT key:59 dataAddress:-604 indexAddress:736 pos:5 size:5
+indexFile_addAndOverflow key:59 dataAddress:-604 indexAddress:736 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:55
 [indexFile_addAndOverflow] data[0]:-564
 [indexFile_addAndOverflow] index[1]:57
 [indexFile_addAndOverflow] data[1]:-584
 [indexFile_addAndOverflow] index[2]:59
 [indexFile_addAndOverflow] data[2]:-604
-[indexFile_addAndOverflow] new node firstEmpty:1464 nextEmpty:1520
-[indexFile_addAndOverflow] currentLeaf:1464 nextLeaf:64
-indexFile_addAndOverflow key:55 dataAddress:1464 indexAddress:1408 pos:3 size:3
-[indexFile_add] key:55 dataAddress:1464 indexAddress:1408 pos:3 size:3
+[indexFile_addAndOverflow] new node firstEmpty:400 nextEmpty:64
+[indexFile_addAndOverflow] currentLeaf:400 nextLeaf:64
+indexFile_addAndOverflow key:55 dataAddress:400 indexAddress:792 pos:3 size:3
+[indexFile_add] key:55 dataAddress:400 indexAddress:792 pos:3 size:3
 
 SELECT key:1
 
@@ -5216,20 +5216,20 @@ SELECT key:59
 
 INSERT key:61 value:ecimhiugryjdl
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:61 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:61 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
 [indexFile_find] middle:3 tmp:49
-[indexFile_find] key:61 address:1408 begin:3 end:4 middle:3 tmp:49 size:4
+[indexFile_find] key:61 address:792 begin:3 end:4 middle:3 tmp:49 size:4
 [indexFile_find] last:55
 [indexFile_find] middle:2 tmp:57
-[indexFile_find] key:61 address:1464 begin:2 end:3 middle:2 tmp:57 size:3
+[indexFile_find] key:61 address:400 begin:2 end:3 middle:2 tmp:57 size:3
 [indexFile_find] last:59
 INSERT find result:4
 [dataFile_add] value:ecimhiugryjdl dataAddress:624 next:644
-INSERT key:61 dataAddress:-624 indexAddress:1464 pos:3 size:3
-indexFile_addAndOverflow key:61 dataAddress:-624 indexAddress:1464 pos:3 size:3
-[indexFile_add] key:61 dataAddress:-624 indexAddress:1464 pos:3 size:3
+INSERT key:61 dataAddress:-624 indexAddress:400 pos:3 size:3
+indexFile_addAndOverflow key:61 dataAddress:-624 indexAddress:400 pos:3 size:3
+[indexFile_add] key:61 dataAddress:-624 indexAddress:400 pos:3 size:3
 
 SELECT key:1
 
@@ -5295,21 +5295,21 @@ SELECT key:61
 
 INSERT key:63 value:iiougncqtyieuihabc
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:63 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:63 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
 [indexFile_find] middle:3 tmp:49
-[indexFile_find] key:63 address:1408 begin:3 end:4 middle:3 tmp:49 size:4
+[indexFile_find] key:63 address:792 begin:3 end:4 middle:3 tmp:49 size:4
 [indexFile_find] last:55
 [indexFile_find] middle:2 tmp:57
 [indexFile_find] middle:3 tmp:59
-[indexFile_find] key:63 address:1464 begin:3 end:4 middle:3 tmp:59 size:4
+[indexFile_find] key:63 address:400 begin:3 end:4 middle:3 tmp:59 size:4
 [indexFile_find] last:61
 INSERT find result:4
 [dataFile_add] value:iiougncqtyieuihabc dataAddress:644 next:664
-INSERT key:63 dataAddress:-644 indexAddress:1464 pos:4 size:4
-indexFile_addAndOverflow key:63 dataAddress:-644 indexAddress:1464 pos:4 size:4
-[indexFile_add] key:63 dataAddress:-644 indexAddress:1464 pos:4 size:4
+INSERT key:63 dataAddress:-644 indexAddress:400 pos:4 size:4
+indexFile_addAndOverflow key:63 dataAddress:-644 indexAddress:400 pos:4 size:4
+[indexFile_add] key:63 dataAddress:-644 indexAddress:400 pos:4 size:4
 
 SELECT key:1
 
@@ -5377,30 +5377,30 @@ SELECT key:63
 
 INSERT key:65 value:zpgweavwmb
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:65 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:65 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:43
 [indexFile_find] middle:3 tmp:49
-[indexFile_find] key:65 address:1408 begin:3 end:4 middle:3 tmp:49 size:4
+[indexFile_find] key:65 address:792 begin:3 end:4 middle:3 tmp:49 size:4
 [indexFile_find] last:55
 [indexFile_find] middle:3 tmp:59
 [indexFile_find] middle:4 tmp:61
-[indexFile_find] key:65 address:1464 begin:4 end:5 middle:4 tmp:61 size:5
+[indexFile_find] key:65 address:400 begin:4 end:5 middle:4 tmp:61 size:5
 [indexFile_find] last:63
 INSERT find result:4
 [dataFile_add] value:zpgweavwmb dataAddress:664 next:784
-INSERT key:65 dataAddress:-664 indexAddress:1464 pos:5 size:5
-indexFile_addAndOverflow key:65 dataAddress:-664 indexAddress:1464 pos:5 size:5
+INSERT key:65 dataAddress:-664 indexAddress:400 pos:5 size:5
+indexFile_addAndOverflow key:65 dataAddress:-664 indexAddress:400 pos:5 size:5
 [indexFile_addAndOverflow] index[0]:61
 [indexFile_addAndOverflow] data[0]:-624
 [indexFile_addAndOverflow] index[1]:63
 [indexFile_addAndOverflow] data[1]:-644
 [indexFile_addAndOverflow] index[2]:65
 [indexFile_addAndOverflow] data[2]:-664
-[indexFile_addAndOverflow] new node firstEmpty:1520 nextEmpty:1576
-[indexFile_addAndOverflow] currentLeaf:1520 nextLeaf:64
-indexFile_addAndOverflow key:61 dataAddress:1520 indexAddress:1408 pos:4 size:4
-[indexFile_add] key:61 dataAddress:1520 indexAddress:1408 pos:4 size:4
+[indexFile_addAndOverflow] new node firstEmpty:64 nextEmpty:176
+[indexFile_addAndOverflow] currentLeaf:64 nextLeaf:64
+indexFile_addAndOverflow key:61 dataAddress:64 indexAddress:792 pos:4 size:4
+[indexFile_add] key:61 dataAddress:64 indexAddress:792 pos:4 size:4
 
 SELECT key:1
 
@@ -5470,20 +5470,20 @@ SELECT key:65
 
 INSERT key:67 value:rdoajyroeux
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:67 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:67 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:67 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:67 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:2 tmp:63
-[indexFile_find] key:67 address:1520 begin:2 end:3 middle:2 tmp:63 size:3
+[indexFile_find] key:67 address:64 begin:2 end:3 middle:2 tmp:63 size:3
 [indexFile_find] last:65
 INSERT find result:4
 [dataFile_add] value:rdoajyroeux dataAddress:784 next:64
-INSERT key:67 dataAddress:-784 indexAddress:1520 pos:3 size:3
-indexFile_addAndOverflow key:67 dataAddress:-784 indexAddress:1520 pos:3 size:3
-[indexFile_add] key:67 dataAddress:-784 indexAddress:1520 pos:3 size:3
+INSERT key:67 dataAddress:-784 indexAddress:64 pos:3 size:3
+indexFile_addAndOverflow key:67 dataAddress:-784 indexAddress:64 pos:3 size:3
+[indexFile_add] key:67 dataAddress:-784 indexAddress:64 pos:3 size:3
 
 SELECT key:1
 
@@ -5555,21 +5555,21 @@ SELECT key:67
 
 INSERT key:69 value:iswqpqqywiindxsh
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:69 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:69 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:69 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:69 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:2 tmp:63
 [indexFile_find] middle:3 tmp:65
-[indexFile_find] key:69 address:1520 begin:3 end:4 middle:3 tmp:65 size:4
+[indexFile_find] key:69 address:64 begin:3 end:4 middle:3 tmp:65 size:4
 [indexFile_find] last:67
 INSERT find result:4
 [dataFile_add] value:iswqpqqywiindxsh dataAddress:64 next:44
-INSERT key:69 dataAddress:-64 indexAddress:1520 pos:4 size:4
-indexFile_addAndOverflow key:69 dataAddress:-64 indexAddress:1520 pos:4 size:4
-[indexFile_add] key:69 dataAddress:-64 indexAddress:1520 pos:4 size:4
+INSERT key:69 dataAddress:-64 indexAddress:64 pos:4 size:4
+indexFile_addAndOverflow key:69 dataAddress:-64 indexAddress:64 pos:4 size:4
+[indexFile_add] key:69 dataAddress:-64 indexAddress:64 pos:4 size:4
 
 SELECT key:1
 
@@ -8233,51 +8233,51 @@ SELECT key:69
 
 [file_update] key:1 value:gc
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:1 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:1 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:1 address:176 begin:1 end:2 middle:2 tmp:7 size:3
+[indexFile_find] key:1 address:232 begin:1 end:2 middle:2 tmp:7 size:3
 [indexFile_find] middle:2 tmp:3
 [indexFile_find] key:1 address:8 begin:1 end:2 middle:2 tmp:3 size:3
 
 [file_update] key:3 value:iravedfkn
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:3 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:3 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:3 address:176 begin:1 end:2 middle:2 tmp:7 size:3
+[indexFile_find] key:3 address:232 begin:1 end:2 middle:2 tmp:7 size:3
 [indexFile_find] middle:2 tmp:3
 [indexFile_find] key:3 address:8 begin:2 end:2 middle:2 tmp:3 size:3
 
 [file_update] key:5 value:zr
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:5 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:5 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:5 address:176 begin:1 end:2 middle:2 tmp:7 size:3
+[indexFile_find] key:5 address:232 begin:1 end:2 middle:2 tmp:7 size:3
 [indexFile_find] middle:2 tmp:3
 [indexFile_find] key:5 address:8 begin:2 end:3 middle:2 tmp:3 size:3
 [indexFile_find] last:5
 
 [file_update] key:7 value:qjsi
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:7 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:7 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:7 address:176 begin:2 end:2 middle:2 tmp:7 size:3
+[indexFile_find] key:7 address:232 begin:2 end:2 middle:2 tmp:7 size:3
 [indexFile_find] middle:2 tmp:9
 [indexFile_find] key:7 address:120 begin:1 end:2 middle:2 tmp:9 size:3
 
 [file_update] key:9 value:tggqpabkg
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:9 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:9 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:9 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:9 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:9
 [indexFile_find] key:9 address:120 begin:2 end:2 middle:2 tmp:9 size:3
 
 [file_update] key:11 value:ihj
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:11 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:11 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:11 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:11 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:9
 [indexFile_find] key:11 address:120 begin:2 end:3 middle:2 tmp:9 size:3
@@ -8285,301 +8285,301 @@ SELECT key:69
 
 [file_update] key:13 value:fyvzrtpupx
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:13 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:13 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:13 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:13 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:15
-[indexFile_find] key:13 address:960 begin:1 end:2 middle:2 tmp:15 size:3
+[indexFile_find] key:13 address:848 begin:1 end:2 middle:2 tmp:15 size:3
 
 [file_update] key:15 value:pspzwzqllcau
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:15 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:15 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:15 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:15 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:15
-[indexFile_find] key:15 address:960 begin:2 end:2 middle:2 tmp:15 size:3
+[indexFile_find] key:15 address:848 begin:2 end:2 middle:2 tmp:15 size:3
 
 [file_update] key:17 value:plzdshtmwyqxiqnfup
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:17 address:1184 begin:1 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:17 address:512 begin:1 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:7
-[indexFile_find] key:17 address:176 begin:2 end:3 middle:2 tmp:7 size:3
+[indexFile_find] key:17 address:232 begin:2 end:3 middle:2 tmp:7 size:3
 [indexFile_find] last:13
 [indexFile_find] middle:2 tmp:15
-[indexFile_find] key:17 address:960 begin:2 end:3 middle:2 tmp:15 size:3
+[indexFile_find] key:17 address:848 begin:2 end:3 middle:2 tmp:15 size:3
 [indexFile_find] last:17
 
 [file_update] key:19 value:sphpcwudgq
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:19 address:1184 begin:2 end:2 middle:2 tmp:19 size:3
+[indexFile_find] key:19 address:512 begin:2 end:2 middle:2 tmp:19 size:3
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:19 address:1128 begin:1 end:2 middle:2 tmp:25 size:3
+[indexFile_find] key:19 address:680 begin:1 end:2 middle:2 tmp:25 size:3
 [indexFile_find] middle:2 tmp:21
-[indexFile_find] key:19 address:904 begin:1 end:2 middle:2 tmp:21 size:3
+[indexFile_find] key:19 address:288 begin:1 end:2 middle:2 tmp:21 size:3
 
 [file_update] key:21 value:epx
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:21 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:21 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:21 address:1128 begin:1 end:2 middle:2 tmp:25 size:3
+[indexFile_find] key:21 address:680 begin:1 end:2 middle:2 tmp:25 size:3
 [indexFile_find] middle:2 tmp:21
-[indexFile_find] key:21 address:904 begin:2 end:2 middle:2 tmp:21 size:3
+[indexFile_find] key:21 address:288 begin:2 end:2 middle:2 tmp:21 size:3
 
 [file_update] key:23 value:czbcnjqwy
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:23 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:23 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:23 address:1128 begin:1 end:2 middle:2 tmp:25 size:3
+[indexFile_find] key:23 address:680 begin:1 end:2 middle:2 tmp:25 size:3
 [indexFile_find] middle:2 tmp:21
-[indexFile_find] key:23 address:904 begin:2 end:3 middle:2 tmp:21 size:3
+[indexFile_find] key:23 address:288 begin:2 end:3 middle:2 tmp:21 size:3
 [indexFile_find] last:23
 
 [file_update] key:25 value:vjxcuderjerl
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:25 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:25 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:25 address:1128 begin:2 end:2 middle:2 tmp:25 size:3
+[indexFile_find] key:25 address:680 begin:2 end:2 middle:2 tmp:25 size:3
 [indexFile_find] middle:2 tmp:27
-[indexFile_find] key:25 address:1016 begin:1 end:2 middle:2 tmp:27 size:3
+[indexFile_find] key:25 address:344 begin:1 end:2 middle:2 tmp:27 size:3
 
 [file_update] key:27 value:fgloroyoqcddyi
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:27 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:27 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:27 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:27 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:27
-[indexFile_find] key:27 address:1016 begin:2 end:2 middle:2 tmp:27 size:3
+[indexFile_find] key:27 address:344 begin:2 end:2 middle:2 tmp:27 size:3
 
 [file_update] key:29 value:hierxakxhrafwtzoovb
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:29 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:29 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:29 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:29 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:27
-[indexFile_find] key:29 address:1016 begin:2 end:3 middle:2 tmp:27 size:3
+[indexFile_find] key:29 address:344 begin:2 end:3 middle:2 tmp:27 size:3
 [indexFile_find] last:29
 
 [file_update] key:31 value:skr
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:31 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:31 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:31 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:31 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:33
-[indexFile_find] key:31 address:1072 begin:1 end:2 middle:2 tmp:33 size:3
+[indexFile_find] key:31 address:456 begin:1 end:2 middle:2 tmp:33 size:3
 
 [file_update] key:33 value:jzonanhvdyieuzlcxzg
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:33 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:33 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:33 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:33 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:33
-[indexFile_find] key:33 address:1072 begin:2 end:2 middle:2 tmp:33 size:3
+[indexFile_find] key:33 address:456 begin:2 end:2 middle:2 tmp:33 size:3
 
 [file_update] key:35 value:wcidjkbmksdzdsulcnt
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:35 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:35 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:2 tmp:25
-[indexFile_find] key:35 address:1128 begin:2 end:3 middle:2 tmp:25 size:3
+[indexFile_find] key:35 address:680 begin:2 end:3 middle:2 tmp:25 size:3
 [indexFile_find] last:31
 [indexFile_find] middle:2 tmp:33
-[indexFile_find] key:35 address:1072 begin:2 end:3 middle:2 tmp:33 size:3
+[indexFile_find] key:35 address:456 begin:2 end:3 middle:2 tmp:33 size:3
 [indexFile_find] last:35
 
 [file_update] key:37 value:ffvxnvmoyavjvd
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:37 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:37 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:37 address:1408 begin:1 end:2 middle:2 tmp:43 size:5
+[indexFile_find] key:37 address:792 begin:1 end:2 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:39
-[indexFile_find] key:37 address:1240 begin:1 end:2 middle:2 tmp:39 size:3
+[indexFile_find] key:37 address:568 begin:1 end:2 middle:2 tmp:39 size:3
 
 [file_update] key:39 value:fo
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:39 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:39 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:39 address:1408 begin:1 end:2 middle:2 tmp:43 size:5
+[indexFile_find] key:39 address:792 begin:1 end:2 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:39
-[indexFile_find] key:39 address:1240 begin:2 end:2 middle:2 tmp:39 size:3
+[indexFile_find] key:39 address:568 begin:2 end:2 middle:2 tmp:39 size:3
 
 [file_update] key:41 value:xhtqrzxrlpjqyalzeeq
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:41 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:41 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:41 address:1408 begin:1 end:2 middle:2 tmp:43 size:5
+[indexFile_find] key:41 address:792 begin:1 end:2 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:39
-[indexFile_find] key:41 address:1240 begin:2 end:3 middle:2 tmp:39 size:3
+[indexFile_find] key:41 address:568 begin:2 end:3 middle:2 tmp:39 size:3
 [indexFile_find] last:41
 
 [file_update] key:43 value:pcqc
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:43 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:43 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:43 address:1408 begin:2 end:2 middle:2 tmp:43 size:5
+[indexFile_find] key:43 address:792 begin:2 end:2 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:45
-[indexFile_find] key:43 address:1296 begin:1 end:2 middle:2 tmp:45 size:3
+[indexFile_find] key:43 address:624 begin:1 end:2 middle:2 tmp:45 size:3
 
 [file_update] key:45 value:tfecmlkgphn
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:45 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:45 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:45 address:1408 begin:2 end:3 middle:2 tmp:43 size:5
+[indexFile_find] key:45 address:792 begin:2 end:3 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:45
-[indexFile_find] key:45 address:1296 begin:2 end:2 middle:2 tmp:45 size:3
+[indexFile_find] key:45 address:624 begin:2 end:2 middle:2 tmp:45 size:3
 
 [file_update] key:47 value:zdkgdoazscw
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:47 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:47 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:2 tmp:43
-[indexFile_find] key:47 address:1408 begin:2 end:3 middle:2 tmp:43 size:5
+[indexFile_find] key:47 address:792 begin:2 end:3 middle:2 tmp:43 size:5
 [indexFile_find] middle:2 tmp:45
-[indexFile_find] key:47 address:1296 begin:2 end:3 middle:2 tmp:45 size:3
+[indexFile_find] key:47 address:624 begin:2 end:3 middle:2 tmp:45 size:3
 [indexFile_find] last:47
 
 [file_update] key:49 value:k
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:49 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:49 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
-[indexFile_find] key:49 address:1408 begin:3 end:3 middle:3 tmp:49 size:5
+[indexFile_find] key:49 address:792 begin:3 end:3 middle:3 tmp:49 size:5
 [indexFile_find] middle:2 tmp:51
-[indexFile_find] key:49 address:1352 begin:1 end:2 middle:2 tmp:51 size:3
+[indexFile_find] key:49 address:736 begin:1 end:2 middle:2 tmp:51 size:3
 
 [file_update] key:51 value:wdxnjsosirbp
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:51 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:51 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:51 address:1408 begin:3 end:4 middle:4 tmp:55 size:5
+[indexFile_find] key:51 address:792 begin:3 end:4 middle:4 tmp:55 size:5
 [indexFile_find] middle:2 tmp:51
-[indexFile_find] key:51 address:1352 begin:2 end:2 middle:2 tmp:51 size:3
+[indexFile_find] key:51 address:736 begin:2 end:2 middle:2 tmp:51 size:3
 
 [file_update] key:53 value:nqua
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:53 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:53 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:53 address:1408 begin:3 end:4 middle:4 tmp:55 size:5
+[indexFile_find] key:53 address:792 begin:3 end:4 middle:4 tmp:55 size:5
 [indexFile_find] middle:2 tmp:51
-[indexFile_find] key:53 address:1352 begin:2 end:3 middle:2 tmp:51 size:3
+[indexFile_find] key:53 address:736 begin:2 end:3 middle:2 tmp:51 size:3
 [indexFile_find] last:53
 
 [file_update] key:55 value:zmwifmvptkyozboy
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:55 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:55 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:55 address:1408 begin:4 end:4 middle:4 tmp:55 size:5
+[indexFile_find] key:55 address:792 begin:4 end:4 middle:4 tmp:55 size:5
 [indexFile_find] middle:2 tmp:57
-[indexFile_find] key:55 address:1464 begin:1 end:2 middle:2 tmp:57 size:3
+[indexFile_find] key:55 address:400 begin:1 end:2 middle:2 tmp:57 size:3
 
 [file_update] key:57 value:mq
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:57 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:57 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:57 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:57 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:2 tmp:57
-[indexFile_find] key:57 address:1464 begin:2 end:2 middle:2 tmp:57 size:3
+[indexFile_find] key:57 address:400 begin:2 end:2 middle:2 tmp:57 size:3
 
 [file_update] key:59 value:mjknponmfszrsqfvs
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:59 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:59 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:59 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:59 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:2 tmp:57
-[indexFile_find] key:59 address:1464 begin:2 end:3 middle:2 tmp:57 size:3
+[indexFile_find] key:59 address:400 begin:2 end:3 middle:2 tmp:57 size:3
 [indexFile_find] last:59
 
 [file_update] key:61 value:l
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:61 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:61 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:61 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:61 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:3 tmp:65
 [indexFile_find] middle:2 tmp:63
-[indexFile_find] key:61 address:1520 begin:1 end:2 middle:2 tmp:63 size:5
+[indexFile_find] key:61 address:64 begin:1 end:2 middle:2 tmp:63 size:5
 
 [file_update] key:63 value:zqqvrb
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:63 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:63 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:63 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:63 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:3 tmp:65
 [indexFile_find] middle:2 tmp:63
-[indexFile_find] key:63 address:1520 begin:2 end:2 middle:2 tmp:63 size:5
+[indexFile_find] key:63 address:64 begin:2 end:2 middle:2 tmp:63 size:5
 
 [file_update] key:65 value:jjhggsccpgd
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:65 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:65 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:65 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:65 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:3 tmp:65
-[indexFile_find] key:65 address:1520 begin:3 end:3 middle:3 tmp:65 size:5
+[indexFile_find] key:65 address:64 begin:3 end:3 middle:3 tmp:65 size:5
 
 [file_update] key:67 value:qftnmnfxbbwnule
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:67 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:67 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:67 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:67 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:3 tmp:65
 [indexFile_find] middle:4 tmp:67
-[indexFile_find] key:67 address:1520 begin:4 end:4 middle:4 tmp:67 size:5
+[indexFile_find] key:67 address:64 begin:4 end:4 middle:4 tmp:67 size:5
 
 [file_update] key:69 value:s
 [indexFile_find] middle:2 tmp:19
-[indexFile_find] key:69 address:1184 begin:2 end:3 middle:2 tmp:19 size:3
+[indexFile_find] key:69 address:512 begin:2 end:3 middle:2 tmp:19 size:3
 [indexFile_find] last:37
 [indexFile_find] middle:3 tmp:49
 [indexFile_find] middle:4 tmp:55
-[indexFile_find] key:69 address:1408 begin:4 end:5 middle:4 tmp:55 size:5
+[indexFile_find] key:69 address:792 begin:4 end:5 middle:4 tmp:55 size:5
 [indexFile_find] last:61
 [indexFile_find] middle:3 tmp:65
 [indexFile_find] middle:4 tmp:67
-[indexFile_find] key:69 address:1520 begin:4 end:5 middle:4 tmp:67 size:5
+[indexFile_find] key:69 address:64 begin:4 end:5 middle:4 tmp:67 size:5
 [indexFile_find] last:69

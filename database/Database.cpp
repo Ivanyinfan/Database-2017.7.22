@@ -663,8 +663,8 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 						int firstEmpty;
 						indexFile.seekg(4);
 						indexFile.read((char *)&firstEmpty, sizeof(int));
-						indexFile.seekp(firstEmpty);
-						indexFile.write((char *)&indexAddress, sizeof(int));
+						indexFile.seekp(indexAddress);
+						indexFile.write((char *)&firstEmpty, sizeof(int));
 						indexFile.seekp(0);
 						indexFile.write((char *)&dataAddress, sizeof(int));
 						indexFile.write((char *)&indexAddress, sizeof(int));
