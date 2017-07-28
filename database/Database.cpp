@@ -2,7 +2,7 @@
 
 Database::Database()
 {
-	scale = 3;
+	scale = 5;
 	indexFile.open("index.txt", ios::in | ios::out | ios::binary | ios::trunc);
 	dataFile.open("data.txt", ios::in | ios::out | ios::binary | ios::trunc);
 	resultFile.open("result.txt", ios::in | ios::out | ios::trunc);
@@ -38,6 +38,7 @@ void Database::dataFile_find(const int dataAddress, string &value)
 int Database::dataFile_add(const string &value)
 {
 	int dataAddress, next = 0;
+	dataFile.clear();
 	dataFile.seekg(0, ios::beg);
 	dataFile.read(reinterpret_cast<char *>(&dataAddress), sizeof(int));
 	dataFile.seekg(dataAddress, ios::beg);
@@ -73,7 +74,7 @@ void Database::dataFile_replace(const int dataAddress, string &value)
 
 int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, int *dataAddress)
 {
-	int next = 0;
+	int current, next = 0;
 	int begin, end, middle, tmp, last;
 	indexFile.clear();
 	indexFile.seekg(0, ios::beg);
@@ -114,6 +115,7 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 			if (key >= last)
 				begin = *size;
 		}
+		current = next;
 		indexFile.seekg(next + 12 + 8 * (begin - 1) + 4);
 		indexFile.read(reinterpret_cast<char *>(&next), sizeof(int));
 	}
@@ -180,7 +182,7 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 			return 4;
 		}
 	}*/
-	*indexAddress = (int)indexFile.tellg() - 8 * middle - 12;
+	*indexAddress = current;
 	*pos = begin;
 	return 2;
 }
@@ -229,10 +231,11 @@ void Database::indexFile_add(const int key, const int dataAddress, const int ind
 		{
 			while (parent > 0)
 			{
+				resultFile << "[indexFile_add] parent:" << parent << endl;
+				indexFile.seekp(parent + 12, ios::beg);
+				indexFile.write((char *)&key, sizeof(int));
 				indexFile.seekg(parent, ios::beg);
 				indexFile.read(reinterpret_cast<char *>(&parent), sizeof(int));
-				indexFile.seekp(parent + 12, ios::beg);
-				indexFile.write((char *)(&key), sizeof(int));
 			}
 		}
 	}
@@ -264,8 +267,8 @@ void Database::indexFile_addAndOverflow(const int key, const int dataAddress, co
 			indexFile.seekg(indexAddress + 12 + 8 * (middle - 1));
 			for (int i = 0; i < rightSize; ++i)
 			{
-				indexFile.read(reinterpret_cast<char *>(index[i]), sizeof(int));
-				indexFile.read(reinterpret_cast<char *>(data[i]), sizeof(int));
+				indexFile.read(reinterpret_cast<char *>(&index[i]), sizeof(int));
+				indexFile.read(reinterpret_cast<char *>(&data[i]), sizeof(int));
 			}
 			leftSize = scale - rightSize;
 			indexFile.seekp(indexAddress + 8);
@@ -395,9 +398,10 @@ void Database::indexFile_delete(const int indexAddress, const int pos, int size)
 	int curKey, curPoint;
 	for (int i = 0; i < size - pos; ++i)
 	{
-		indexFile.seekg(indexAddress + 8 * (pos + i));
+		indexFile.seekg(indexAddress + 12 + 8 * (pos + i));
 		indexFile.read(reinterpret_cast<char *>(&curKey), sizeof(int));
 		indexFile.read(reinterpret_cast<char *>(&curPoint), sizeof(int));
+		resultFile << "[indexFile_delete] curKey:" << curKey << " curPoint:" << curPoint << endl;
 		indexFile.seekp((int)indexFile.tellg() - 16);
 		indexFile.write(reinterpret_cast<char *>(&curKey), sizeof(int));
 		indexFile.write(reinterpret_cast<char *>(&curPoint), sizeof(int));
@@ -422,17 +426,21 @@ void Database::indexFile_delete(const int indexAddress, const int pos, int size)
 		{
 			int min;
 			int parent = 0, parentPosition;
+			int selfPosition = pos;
 			indexFile.seekg(indexAddress + 12);
 			indexFile.read(reinterpret_cast<char *>(&min), sizeof(int));
+			resultFile << "[indexFile_delete] min:" << min << endl;
 			indexFile.seekg(indexAddress);
 			indexFile.read(reinterpret_cast<char *>(&parent), sizeof(int));
-			while (parent > 0)
+			while (parent > 0 && selfPosition == 1)
 			{
 				indexFile.read(reinterpret_cast<char *>(&parentPosition), sizeof(int));
+				resultFile << "[indexFile_delete] parent:" << parent << " parentPositon:" << parentPosition << endl;
 				indexFile.seekp(parent + 12 + 8 * (parentPosition - 1));
 				indexFile.write(reinterpret_cast<char *>(&min), sizeof(int));
 				indexFile.seekg(parent);
 				indexFile.read(reinterpret_cast<char *>(&parent), sizeof(int));
+				selfPosition = parentPosition;
 			}
 		}
 	}
@@ -450,9 +458,12 @@ void Database::indexFile_borrowLeft(const int indexAddress, int size, const int 
 	leftSize -= 1;
 	indexFile.seekp(left + 8);
 	indexFile.write((char *)&leftSize, sizeof(int));
-	indexFile.seekp(indexAddress + 12 + 8 * size);
-	indexFile.write((char *)&borrowLeftKey, sizeof(int));
-	indexFile.write((char *)&borrowLeftValue, sizeof(int));
+	indexFile.seekg(indexAddress + 12);
+	for (int i = 0; i < size; ++i)
+	{
+		indexFile.read((char *)&index[i], sizeof(int));
+		indexFile.read((char *)&data[i], sizeof(int));
+	}
 	size += 1;
 	indexFile.seekp(indexAddress + 8);
 	indexFile.write((char *)&size, sizeof(int));
@@ -476,9 +487,10 @@ void Database::indexFile_borrowLeft(const int indexAddress, int size, const int 
 			indexFile.write((char *)&childrenParentPositon, sizeof(int));
 		}
 	}
-	int selfPosition = 0;
-	while (parent > 0 && selfPosition == 0)
+	int selfPosition = 1;
+	while (parent > 0 && selfPosition == 1)
 	{
+		resultFile << "[indexFile_borrowLeft] parent:" << parent << " parentPosition:" << parentPosition << " selfPositon:" << selfPosition << endl;
 		indexFile.seekp(parent + 8 * (parentPosition - 1));
 		indexFile.write((char *)&borrowLeftKey, sizeof(int));
 		selfPosition = parentPosition;
@@ -534,9 +546,9 @@ void Database::indexFile_borrowRight(const int indexAddress, int size, const int
 			indexFile.write((char *)&childrenParentPositon, sizeof(int));
 		}
 	}
-	int selfPositon = 0;
+	int selfPositon = 1;
 	parentPosition += 1;
-	while (parent > 0 && selfPositon == 0)
+	while (parent > 0 && selfPositon == 1)
 	{
 		resultFile << "[indexFile_borrowRight] parent:" << parent << " parentPosition:" << parentPosition << endl;
 		indexFile.seekp(parent + 12 + 8 * (parentPosition - 1));
@@ -656,7 +668,7 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 			{
 				if (parentSize != 1)
 				{
-					indexFile.seekg(parent + 12 + 8 * (size - 1) + 4);
+					indexFile.seekg(parent + 12 + 8 * (parentSize - 2) + 4);
 					indexFile.read((char *)&left, sizeof(int));
 					indexFile.seekg(left + 8);
 					indexFile.read((char *)&leftSize, sizeof(int));
@@ -721,8 +733,8 @@ void Database::indexFile_deleteAndUnderflow(const int indexAddress, const int po
 bool Database::select(const int key, string &value)
 {
 	resultFile << endl << "SELECT key:" << key << endl;
-	if (cache.select(key, value))
-		return true;
+	//if (cache.select(key, value))
+		//return true;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	resultFile << "select find result:" << result << endl;
@@ -746,11 +758,11 @@ bool Database::insert(const int key, const string &value)
 		return false;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
-	resultFile << "insert find result:" << result << endl;
+	resultFile << "INSERT find result:" << result << endl;
 	if (result == 1)
 		return false;
 	dataAddress = -dataFile_add(value);
-	resultFile << "insert key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
+	resultFile << "INSERT key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
 	indexFile_addAndOverflow(key, dataAddress, indexAddress, pos, size);
 	int oldKey;
 	string oldValue;
