@@ -3,11 +3,11 @@
 Database::Database()
 {
 	scale = 5;
-	indexFile.open("index.txt", ios::in | ios::out | ios::binary | ios::trunc);
-	dataFile.open("data.txt", ios::in | ios::out | ios::binary | ios::trunc);
+	indexFile.open("index.txt", ios::in | ios::out | ios::binary);
+	dataFile.open("data.txt", ios::in | ios::out | ios::binary);
 	logFile.open("log.txt", ios::in | ios::out | ios::trunc);
-	/*if (!indexFile)
-	{*/
+	//if (!indexFile)
+	//{
 		indexFile.close();
 		dataFile.close();
 		ofstream index("index.txt", ios::binary);
@@ -119,9 +119,9 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 		indexFile.seekg(next + 12 + 8 * (begin - 1) + 4);
 		indexFile.read(reinterpret_cast<char *>(&next), sizeof(int));
 	}
+	*indexAddress = current;
 	if (tmp == key)
 	{
-		*indexAddress = (int)indexFile.tellg() - 8 * middle - 12;
 		*pos = middle;
 		*dataAddress = -next;
 		return 1;
@@ -134,21 +134,19 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 		if (key == first)
 		{
 			indexFile.read(reinterpret_cast<char *>(dataAddress), sizeof(int));
-			*indexAddress = (int)indexFile.tellg() - 8 * begin - 12;
 			*pos = begin;
 			*dataAddress = -*dataAddress;
 			return 1;
 		}
 		if (key < first)
 		{
-			*indexAddress = (int)indexFile.tellg() + 4 - 8 * 1 - 12;
 			*pos = 0;
 			return 0;
 		}
 	}
 	if (begin == *size)
 	{
-		*indexAddress = (int)indexFile.tellg() - 8 * begin - 12;
+		*indexAddress = current;
 		*pos = *size;
 		if (last == key)
 		{
@@ -157,32 +155,6 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 		}
 		return 4;
 	}
-	/*if (key > tmp && end == size)
-	{
-		if (size == 1)
-		{
-			*indexAddress = (int)indexFile.tellg() - 8 * size - 12;
-			*pos = size;
-			return 4;
-		}
-		indexFile.read(reinterpret_cast<char *>(&last), sizeof(int));
-		logFile << "indexFile_find last:" << last << endl;
-		if (key == last)
-		{
-			indexFile.read(reinterpret_cast<char *>(dataAddress), sizeof(int));
-			*indexAddress = (int)indexFile.tellg() - 8 * size - 12;
-			*pos = size;
-			*dataAddress = -*dataAddress;
-			return 1;
-		}
-		if (key > last)
-		{
-			*indexAddress = (int)indexFile.tellg() + 4 - 8 * size - 12;
-			*pos = size;
-			return 4;
-		}
-	}*/
-	*indexAddress = current;
 	*pos = begin;
 	return 2;
 }

@@ -86,6 +86,26 @@ int main()
 		if (!flag)
 			break;
 	}
+	/*while (fin >> op)
+	{
+		switch (op)
+		{
+		case 1:
+			fin >> key >> value;
+			answer[key] = value;
+			break;
+		case 2:
+			fin >> key;
+			answer.erase(key);
+			break;
+		case 3:
+			fin >> key >> value;
+			answer[key] = value;
+			break;
+		default:
+			break;
+		}
+	}*/
 	if (flag)
 	{
 		cout << "No problem found.Test manully." << endl;
@@ -224,8 +244,12 @@ int main()
 						}
 						else if (value != it->second)
 						{
+							cout << value << endl;
+							cout << it->second << endl;
 							cout << "error" << endl;
 							cout << "Open log.txt to get more details.Test stop." << endl;
+							char c;
+							cin >> c;
 							flag = false;
 							break;
 						}
