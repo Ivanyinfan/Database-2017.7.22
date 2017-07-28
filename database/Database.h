@@ -17,7 +17,7 @@ public:
 	int indexFile_find(int key, int *indexAddress, int *pos, int *size, int *dataAddress);
 	void indexFile_add(const int key, const int dataAddress, const int indexAddress, int pos, int size);
 	void indexFile_addAndOverflow(const int key, const int dataAddress, const int indexAddress, const int pos, const int size);
-	void indexFile_delete(const int indexAddress, const int pos, int size);
+	bool indexFile_delete(const int indexAddress, const int pos, int size);
 	void indexFile_borrowLeft(const int indexAddress, int size, const int left, int leftSize, int parent, int parentPosition);
 	void indexFile_borrowRight(const int indexAddress, int size, const int right, int rightSize, int parent, int parentPosition);
 	void indexFile_mergeLeft(const int indexAddress, const int size, const int left, int leftSize);
@@ -32,8 +32,9 @@ private:
 	int scale;
 	fstream indexFile, dataFile;
 	Cache cache;
-	fstream resultFile;
+	fstream logFile;
 	const int ZERO = 0;
+	const char END = '\0';
 };
 
 #endif // !DATABASE_H
