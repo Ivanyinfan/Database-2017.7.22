@@ -3,8 +3,10 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
-#include <set>
+#include <map>
 using namespace std;
+
+int randN(int n);
 
 int main()
 {
@@ -13,11 +15,14 @@ int main()
 	int length;
 	char value[20];
 	int op;
+	map<int, string> answer;
+	map<int, string>::iterator it;
 	srand(time(NULL));
 	while (true)
 	{
 		cout << "0.quit" << endl;
 		cout << "1.correctnessTestFile" << endl;
+		cout << "2.performanceTestFile10000" << endl;
 		cout << "Please select:";
 		cin >> op;
 		if (op == 0)
@@ -30,8 +35,8 @@ int main()
 				for (int i = 1; i < size * 2 + 1; i += 2)
 				{
 					length = rand() % 19 + 1;
-					for (int i = 0; i < length; ++i)
-						value[i] = rand() % 26 + 97;
+					for (int j = 0; j < length; ++j)
+						value[j] = rand() % 26 + 97;
 					value[length] = '\0';
 					fout << "1 " << i << " " << value << endl;
 				}
@@ -93,8 +98,8 @@ int main()
 				for (int i = 1; i < size * 2 + 1; i += 2)
 				{
 					length = rand() % 19 + 1;
-					for (int i = 0; i < length; ++i)
-						value[i] = rand() % 26 + 97;
+					for (int j = 0; j < length; ++j)
+						value[j] = rand() % 26 + 97;
 					value[length] = '\0';
 					fout << "1 " << i << " " << value << endl;
 					fout << 4 << endl;
@@ -103,13 +108,128 @@ int main()
 				for (int i = 1; i < size * 2 + 1; i += 2)
 				{
 					length = rand() % 19 + 1;
-					for (int i = 0; i < length; ++i)
-						value[i] = rand() % 26 + 97;
+					for (int j = 0; j < length; ++j)
+						value[j] = rand() % 26 + 97;
 					value[length] = '\0';
 					fout << "3 " << i << " " << value << endl;
 					fout << 4 << endl;
 				}//¸üÐÂ
 				fout.close();
+				break;
+			case 2:
+				fout.open("../../../database/performanceTestFile10000.txt");
+				size = 1000000;
+				int randNum;
+				for (int i = 0; i < size; ++i)
+				{
+					length = rand() % 19 + 1;
+					for (int j = 0; j < length; ++j)
+						value[j] = rand() % 26 + 97;
+					value[length] = '\0';
+					fout << "1 " << i << " " << value << endl;
+					answer[i] = value;
+				}
+				cout << "insert 1000000 data complete" << endl;
+				for (int i = 0; i < 10000; ++i)
+				{
+					randNum = 0;
+					for (int j = 0; j < 6; ++j)
+						randNum = randNum * 10 + rand() % 10;
+					fout << "0 " << randNum << endl;
+				}
+				cout << "select 10000 data complete" << endl;
+				for (int i = 1; i <= 10000; ++i)
+				{
+					randNum = randN(6) % answer.size();
+					fout << "0 " << randNum << endl;
+					if (i % 37 == 0)
+					{
+						randNum = rand() % 5;
+						if (randNum != 0)
+						{
+							randNum = randN(6) % answer.size();
+							fout << "2 " << randNum << endl;
+							it = answer.find(randNum);
+							if (it != answer.end());
+								answer.erase(it);
+						}
+						else
+						{
+							randNum = randN(7);
+							fout << "2 " << randNum << endl;
+							it = answer.find(randNum);
+							if (it != answer.end())
+								answer.erase(it);
+						}
+					}
+					if (i % 11 == 0)
+					{
+						randNum = randN(7);
+						length = rand() % 19 + 1;
+						for (int j = 0; j < length; ++j)
+							value[j] = rand() % 26 + 97;
+						value[length] = '\0';
+						fout << "1 " << randNum << " " << value << endl;
+						fout << "0 " << randNum << endl;
+						if (answer.find(randNum) == answer.end())
+							answer[randNum] = value;
+					}
+					if (i % 17 == 0)
+					{
+						randNum = rand() % 5;
+						if (randNum != 0)
+						{
+							randNum = randN(6) % answer.size();
+							length = rand() % 19 + 1;
+							for (int j = 0; j < length; ++j)
+								value[j] = rand() % 26 + 97;
+							value[length] = '\0';
+							fout << "3 " << randNum << " " << value << endl;
+							it = answer.find(randNum);
+							if (it != answer.end())
+								it->second = value;
+						}
+						else
+						{
+							randNum = randN(7);
+							length = rand() % 19 + 1;
+							for (int j = 0; j < length; ++j)
+								value[j] = rand() % 26 + 97;
+							value[length] = '\0';
+							fout << "3 " << randNum << " " << value << endl;
+							it = answer.find(randNum);
+							if (it != answer.end())
+								answer.erase(it);
+						}
+					}
+				}
+				cout << "test 1000 data complete" << endl;
+				for (int i = 0; i < 1000; ++i)
+				{
+					randNum = rand() % 5;
+					if (randNum != 0)
+					{
+						randNum = randN(6) % answer.size();
+						fout << "2 " << randNum << endl;
+						it = answer.find(randNum);
+						if (it != answer.end())
+							answer.erase(it);
+					}
+					else
+					{
+						randNum = randN(7);
+						fout << "2 " << randNum << endl;
+						it = answer.find(randNum);
+						if (it != answer.end())
+							answer.erase(it);
+					}
+					for (int j = 0; j < 10; ++j)
+					{
+						randNum = randN(6) % answer.size();
+						fout << "0 " << randNum << endl;
+					}
+				}
+				cout << "remove 1000 data complete" << endl;
 				break;
 			default:
 				cout << "Invalid input" << endl;
@@ -117,4 +237,12 @@ int main()
 		}
 	}
 	return 0;
+}
+
+int randN(int n)
+{
+	int result = 0;
+	for (int i = 0; i < n; ++i)
+		result = result * 10 + rand() % 10;
+	return result;
 }
