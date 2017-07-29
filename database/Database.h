@@ -33,7 +33,7 @@ private:
 	int scale;
 	fstream indexFile, dataFile;
 	Cache cache;
-	fstream logFile;
+	ofstream logFile;
 	const int ZERO = 0;
 	const char END = '\0';
 };
