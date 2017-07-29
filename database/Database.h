@@ -15,7 +15,7 @@ public:
 	void dataFile_delete(const int dataAddress);
 	void dataFile_replace(const int dataAddress, string &value);
 	int indexFile_find(int key, int *indexAddress, int *pos, int *size, int *dataAddress);
-	void indexFile_add(const int key, const int dataAddress, const int indexAddress, int pos, int size);
+	void indexFile_add(const int key, const int dataAddress, const int indexAddress, const int pos, int size);
 	void indexFile_addAndOverflow(const int key, const int dataAddress, const int indexAddress, const int pos, const int size);
 	bool indexFile_delete(const int indexAddress, const int pos, int size);
 	void indexFile_borrowLeft(const int indexAddress, int size, const int left, int leftSize, int parent, int parentPosition);

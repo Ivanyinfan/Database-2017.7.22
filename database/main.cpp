@@ -3,7 +3,7 @@
 
 int main()
 {
-	ifstream fin("SimpleTestFile.txt");
+	ifstream fin("randomTestFile.txt");
 	Database database;
 	map<int, string> answer;
 	int op, key;
@@ -46,18 +46,72 @@ int main()
 				break;
 			case 1:
 				fin >> key >> value;
-				database.insert(key, value);
-				answer[key] = value;
+				if (database.insert(key, value))
+				{
+					if (answer.find(key) != answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+					else
+						answer[key] = value;
+				}
+				else
+				{
+					if (answer.find(key) == answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+				}
 				break;
 			case 2:
 				fin >> key;
-				database.remove(key);
-				answer.erase(key);
+				if (database.remove(key))
+				{
+					if (answer.find(key) == answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+					else
+						answer.erase(key);
+				}
+				else
+				{
+					if (answer.find(key) != answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+				}
 				break;
 			case 3:
 				fin >> key >> value;
-				database.update(key, value);
-				answer[key] = value;
+				if (database.update(key, value))
+				{
+					if (answer.find(key) == answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+					else
+						answer[key] = value;
+				}
+				else
+				{
+					if (answer.find(key) != answer.end())
+					{
+						cout << "error" << endl;
+						cout << "Open log.txt to get more details.Test stop." << endl;
+						flag = false;
+					}
+				}
 				break;
 			case 4:
 				for (it = answer.begin(); it != answer.end(); ++it)

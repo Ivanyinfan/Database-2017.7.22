@@ -159,7 +159,7 @@ int Database::indexFile_find(int key, int *indexAddress, int *pos, int *size, in
 	return 2;
 }
 
-void Database::indexFile_add(const int key, const int dataAddress, const int indexAddress, int pos, int size)
+void Database::indexFile_add(const int key, const int dataAddress, const int indexAddress, const int pos, int size)
 {
 	logFile << "[indexFile_add] key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
 	if (size == 0)
@@ -209,15 +209,15 @@ void Database::indexFile_add(const int key, const int dataAddress, const int ind
 	}
 	if (dataAddress > 0)
 	{
-		pos += 1;
+		int childrenParentPositon = pos + 1;
 		indexFile.seekp(dataAddress);
 		indexFile.write((char *)(&indexAddress), sizeof(int));
-		indexFile.write((char *)(&pos), sizeof(int));
+		indexFile.write((char *)(&childrenParentPositon), sizeof(int));
 		for (int i = 0; i < size - pos - 1; ++i)
 		{
-			pos = pos + i + 1;
-			indexFile.seekp(data[0] + 4);
-			indexFile.write((char *)&pos, sizeof(int));
+			childrenParentPositon = pos + 1 + i + 1;
+			indexFile.seekp(data[i] + 4);
+			indexFile.write((char *)&childrenParentPositon, sizeof(int));
 		}
 	}
 	delete[] index;
@@ -746,8 +746,8 @@ bool Database::file_update(const int key, string &value)
 bool Database::select(const int key, string &value)
 {
 	logFile << endl << "SELECT key:" << key << endl;
-	if (cache.select(key, value))
-		return true;
+	//if (cache.select(key, value))
+		//return true;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	logFile << "SELECT find result:" << result << endl;
@@ -755,11 +755,11 @@ bool Database::select(const int key, string &value)
 		return false;
 	dataFile_find(dataAddress, value);
 	logFile << "SELECT key:" << key << " indexAddress:" << indexAddress << " pos:" << pos << " dataAddress:" << dataAddress << " value:" << value << endl;
-	int oldKey;
-	string oldValue;
-	result = cache.insert(key, value, &oldKey, &oldValue);
-	if (result == 2)
-		file_update(oldKey, oldValue);
+	//int oldKey;
+	//string oldValue;
+	//result = cache.insert(key, value, &oldKey, &oldValue);
+	//if (result == 2)
+		//file_update(oldKey, oldValue);
 	return true;
 }
 
@@ -767,8 +767,8 @@ bool Database::insert(const int key, const string &value)
 {
 	logFile << endl << "INSERT key:" << key << " value:" << value << endl;
 	string fvalue;
-	if (cache.select(key, fvalue))
-		return false;
+	//if (cache.select(key, fvalue))
+		//return false;
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	logFile << "INSERT find result:" << result << endl;
@@ -777,18 +777,18 @@ bool Database::insert(const int key, const string &value)
 	dataAddress = -dataFile_add(value);
 	logFile << "INSERT key:" << key << " dataAddress:" << dataAddress << " indexAddress:" << indexAddress << " pos:" << pos << " size:" << size << endl;
 	indexFile_addAndOverflow(key, dataAddress, indexAddress, pos, size);
-	int oldKey;
-	string oldValue;
-	result = cache.insert(key, value, &oldKey, &oldValue);
-	if (result == 2)
-		file_update(oldKey, oldValue);
+	//int oldKey;
+	//string oldValue;
+	//result = cache.insert(key, value, &oldKey, &oldValue);
+	//if (result == 2)
+		//file_update(oldKey, oldValue);
 	return true;
 }
 
 bool Database::remove(const int key)
 {
 	logFile << endl << "REMOVE key:" << key << endl;
-	cache.remove(key);
+	//cache.remove(key);
 	int indexAddress, pos, size, dataAddress;
 	int result = indexFile_find(key, &indexAddress, &pos, &size, &dataAddress);
 	if (result != 1)
@@ -802,18 +802,18 @@ bool Database::update(const int key, string &value)
 {
 	logFile << endl << "UPDATE key:" << key << " value:" << value << endl;
 	int result;
-	result = cache.update(key, value);
-	if (!result)
-	{
+	//result = cache.update(key, value);
+	//if (!result)
+	//{
 		result = file_update(key, value);
 		if (!result)
 			return false;
-		int oldKey;
-		string oldValue;
-		result = cache.insert(key, value, &oldKey, &oldValue);
-		if (result == 2)
-			file_update(oldKey, oldValue);
-	}
+		//int oldKey;
+		//string oldValue;
+		//result = cache.insert(key, value, &oldKey, &oldValue);
+		//if (result == 2)
+			//file_update(oldKey, oldValue);
+	//}
 	return true;
 }
 
