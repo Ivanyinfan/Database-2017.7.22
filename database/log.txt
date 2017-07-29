@@ -1,15 +1,4 @@
+index and data file initialize complete.
 
-SELECT key:2
-[indexFile_find] middle:1 tmp:1
-[indexFile_find] key:2 address:8 begin:1 end:2 middle:1 tmp:1 size:2
-[indexFile_find] last:2
-SELECT find result:1
-[dataFile_find] dataAddress:24 value:2 tmp:2
-SELECT key:2 indexAddress:8 pos:2 dataAddress:24 value:2
-
-SELECT key:1
-[indexFile_find] middle:1 tmp:1
-[indexFile_find] key:1 address:8 begin:1 end:1 middle:1 tmp:1 size:2
-SELECT find result:1
-[dataFile_find] dataAddress:4 value:1 tmp:1
-SELECT key:1 indexAddress:8 pos:1 dataAddress:4 value:1
+SELECT key:5
+SELECT find result:0
