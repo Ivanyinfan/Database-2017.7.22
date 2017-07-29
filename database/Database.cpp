@@ -209,15 +209,15 @@ void Database::indexFile_add(const int key, const int dataAddress, const int ind
 	}
 	if (dataAddress > 0)
 	{
-		pos += 1;
+		int childrenParentPositon = pos + 1;
 		indexFile.seekp(dataAddress);
 		indexFile.write((char *)(&indexAddress), sizeof(int));
-		indexFile.write((char *)(&pos), sizeof(int));
+		indexFile.write((char *)(&childrenParentPositon), sizeof(int));
 		for (int i = 0; i < size - pos - 1; ++i)
 		{
-			pos = pos + i + 1;
-			indexFile.seekp(data[0] + 4);
-			indexFile.write((char *)&pos, sizeof(int));
+			childrenParentPositon = pos + 1 + i + 1;
+			indexFile.seekp(data[i] + 4);
+			indexFile.write((char *)&childrenParentPositon, sizeof(int));
 		}
 	}
 	delete[] index;
