@@ -1,4 +1,24 @@
 index and data file initialize complete.
 
-SELECT key:5
+INSERT key:12 value:12
+INSERT find result:0
+[dataFile_add] value:12 dataAddress:4 next:24
+INSERT key:12 dataAddress:-4 indexAddress:8 pos:0 size:0
+indexFile_addAndOverflow key:12 dataAddress:-4 indexAddress:8 pos:0 size:0
+[indexFile_add] key:12 dataAddress:-4 indexAddress:8 pos:0 size:0
+
+SELECT key:12
+
+UPDATE key:12 value:13
+
+SELECT key:12
+
+REMOVE key:12
+[indexFile_find] middle:1 tmp:12
+[indexFile_find] key:12 address:8 begin:1 end:1 middle:1 tmp:12 size:1
+[indexFile_find] last:12
+[indexFile_deleteAndUnderflow] indexAddress:8 pos:1 size:1
+[indexFile_delete] indexAddress:8 pos:1 size:1
+
+SELECT key:12
 SELECT find result:0
